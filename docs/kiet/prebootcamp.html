@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Development Hub</title>
+    <title>Pre-Bootcamp - Student Development Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -34,6 +34,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         /* Animated Background */
@@ -69,6 +70,46 @@
             flex: 1;
         }
 
+        /* Home Button - Top Left */
+        .home-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.15);
+        }
+
+        .home-btn:active {
+            transform: translateY(-1px);
+        }
+
         /* Header */
         header {
             padding: 4rem 0 2rem;
@@ -89,7 +130,7 @@
         }
 
         .glow-orb-1 {
-            background: var(--accent-primary);
+            background: var(--accent-secondary);
             top: -100px;
             left: 50%;
             transform: translateX(-50%);
@@ -106,7 +147,7 @@
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: normal;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -226,45 +267,43 @@
             .action-btn {
                 padding: 2.5rem 1.5rem;
             }
+
+            .home-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                top: 1.5rem;
+                left: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="bg-pattern"></div>
 
+    <!-- Home Button -->
+    <a href="index.html" class="home-btn">Home</a>
+
     <header>
         <div class="glow-orb glow-orb-1"></div>
         <div class="container">
-            <h1>Student Hub</h1>
-            <p class="subtitle">Select your learning path to begin</p>
-            <p class="subtitle">Bootcamp By AI-Karyashala.</p>
+            <h1>Pre-Bootcamp</h1>
+            <p class="subtitle">Essential preparation materials</p>
+            <p class="subtitle">Choose your learning track</p>
         </div>
     </header>
 
     <div class="container">
         <div class="menu-grid">
-            <a href="installation.html" class="action-btn">
-                <span class="btn-icon">⚡</span>
-                <span class="btn-title">Installation Guide</span>
-                <span class="btn-desc">Setup your development environment</span>
+            <a href="systeminternals_preb.html" class="action-btn">
+                <span class="btn-icon">⚙️</span>
+                <span class="btn-title">System Internals</span>
+                <span class="btn-desc">Learn operating systems fundamentals</span>
             </a>
 
-            <a href="prebootcamp.html" class="action-btn">
-                <span class="btn-icon">🚀</span>
-                <span class="btn-title">Pre-Bootcamp</span>
-                <span class="btn-desc">Essential preparation materials</span>
-            </a>
-
-            <a href="bootcamp.html" class="action-btn">
-                <span class="btn-icon">🔥</span>
-                <span class="btn-title">Bootcamp</span>
-                <span class="btn-desc">Core curriculum and daily tasks</span>
-            </a>
-
-            <a href="post-bootcamp.html" class="action-btn">
-                <span class="btn-icon">🎓</span>
-                <span class="btn-title">Post-Bootcamp</span>
-                <span class="btn-desc">Advanced projects and career paths</span>
+            <a href="c-programming.html" class="action-btn">
+                <span class="btn-icon">💻</span>
+                <span class="btn-title">C Programming</span>
+                <span class="btn-desc">Master the C programming language</span>
             </a>
         </div>
     </div>
