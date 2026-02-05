@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Development Environment Setup Guide</title>
+    <title>AI-Karyashala Setup Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.7.0/dist/bundle/asciinema-player.min.css" />
     <style>
         * {
             margin: 0;
@@ -58,6 +59,79 @@
         @keyframes patternShift {
             0% { transform: translateY(0); }
             100% { transform: translateY(140px); }
+        }
+
+        /* Home Button */
+        .home-btn {
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 1000;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-btn:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 217, 255, 0.2);
+        }
+
+        .home-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+            border-radius: 50%;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 30px rgba(0, 217, 255, 0.5);
+        }
+
+        .scroll-top-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .scroll-top-btn svg {
+            width: 24px;
+            height: 24px;
+            color: var(--bg-primary);
         }
 
         .container {
@@ -202,6 +276,7 @@
         .section:nth-child(1) { animation-delay: 0.6s; }
         .section:nth-child(2) { animation-delay: 0.8s; }
         .section:nth-child(3) { animation-delay: 1s; }
+        .section:nth-child(4) { animation-delay: 1.2s; }
 
         .section-header {
             display: flex;
@@ -453,6 +528,21 @@
             font-size: clamp(1rem, 2.5vw, 1.15rem);
         }
 
+        /* Asciinema Player */
+        .asciinema-container {
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--code-bg);
+            min-height: 400px;
+        }
+
+        #demo-player {
+            width: 100%;
+            height: 100%;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
@@ -466,55 +556,27 @@
             font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
-        /* Expandable code section */
-        .expandable-code {
-            margin-top: 1rem;
-        }
-
-        .expand-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--accent-primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-            width: 100%;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .expand-btn:hover {
-            border-color: var(--accent-primary);
-            background: var(--bg-secondary);
-        }
-
-        .expand-btn::after {
-            content: '▼';
-            transition: transform 0.3s ease;
-        }
-
-        .expand-btn.active::after {
-            transform: rotate(180deg);
-        }
-
-        .code-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .code-content.expanded {
-            max-height: 10000px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
+            .home-btn {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .scroll-top-btn {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 3rem;
+                height: 3rem;
+            }
+
+            .scroll-top-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+
             .container {
                 padding: 0 1rem;
             }
@@ -575,20 +637,37 @@
 <body>
     <div class="bg-pattern"></div>
 
+    <!-- Home Button -->
+    <a href="index.html" class="home-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Home
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
     <header>
         <div class="glow-orb glow-orb-1"></div>
         <div class="glow-orb glow-orb-2"></div>
         <div class="container">
-            <h1>Development Environment Setup</h1>
-            <p class="subtitle">A comprehensive guide to setting up your student development environment across multiple platforms</p>
+            <h1>AI-Karyashala <br> Development Environment Setup</h1>
+            <p class="subtitle">A comprehensive guide to setting up your student development environment by AI-Karyashala</p>
         </div>
     </header>
 
     <div class="container">
         <nav class="nav-pills">
-            <a href="#wsl" class="nav-pill">Windows + WSL</a>
-            <a href="#setup-tools" class="nav-pill">Cross-Platform Tools</a>
-            <a href="#lldb" class="nav-pill">LLDB Debugger</a>
+            <a href="#wsl" class="nav-pill">1. Ubuntu Setup</a>
+            <a href="#prereqs" class="nav-pill">2. Prerequisites</a>
+            <a href="#setup" class="nav-pill">3. Tools Setup</a>
+            <a href="#workflow" class="nav-pill">4. Verification & Workflow</a>
         </nav>
 
         <section id="wsl" class="section">
@@ -597,7 +676,7 @@
                 <h2 class="section-title">Install Ubuntu on Windows</h2>
             </div>
             <p class="section-description">
-                Set up Windows Subsystem for Linux (WSL2) to run Ubuntu Linux natively on your Windows machine. This provides a full Linux development environment without dual-booting.
+                Set up Windows Subsystem for Linux (WSL2) to run Ubuntu Linux natively.
             </p>
 
             <div class="card fade-in-section">
@@ -612,21 +691,18 @@
 
                 <div class="step">
                     <div class="step-title">2. Check for WSL</div>
-                    <div class="step-content">
-                        Type the following command and press Enter:
-                    </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">PowerShell</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>wsl --version</pre>
+                        <pre>wsl --list --online</pre>
                     </div>
                     <div class="alert alert-info">
                         <div class="alert-title">💡 What to expect:</div>
                         <ul>
                             <li>If the command works: Skip to Phase 3</li>
-                            <li>If "command not found" or unrecognized: Continue to Phase 2</li>
+                            <li>If "command not found": Continue to Phase 2</li>
                         </ul>
                     </div>
                 </div>
@@ -634,12 +710,8 @@
 
             <div class="card fade-in-section">
                 <h3 class="card-title">Phase 2: Enabling Required Features</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    <em>If WSL was not recognized, you must enable the necessary Windows components.</em>
-                </p>
-
                 <div class="step">
-                    <div class="step-title">3. Enable WSL Feature</div>
+                    <div class="step-title">3. Enable WSL</div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">PowerShell</span>
@@ -648,9 +720,8 @@
                         <pre>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</pre>
                     </div>
                 </div>
-
                 <div class="step">
-                    <div class="step-title">4. Enable Virtual Machine Platform</div>
+                    <div class="step-title">3. Enable Virtual Machine Platform</div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">PowerShell</span>
@@ -659,52 +730,18 @@
                         <pre>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</pre>
                     </div>
                 </div>
-
                 <div class="step">
-                    <div class="step-title">5. Restart Your Computer</div>
+                    <div class="step-title">4. Restart & Verify</div>
                     <div class="step-content">
-                        Reboot your computer to finalize these changes.
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">6. Re-open PowerShell</div>
-                    <div class="step-content">
-                        After the reboot, open PowerShell as <strong>Administrator</strong> again.
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">7. Verify Installation</div>
-                    <div class="step-content">
-                        Run <span class="inline-code">wsl --version</span> to ensure the system now recognizes the command.
+                        Restart your computer. Open PowerShell as Administrator and run <span class="inline-code">wsl --list --online</span> to verify.
                     </div>
                 </div>
             </div>
 
             <div class="card fade-in-section">
-                <h3 class="card-title">Phase 3: Distribution Installation</h3>
-
+                <h3 class="card-title">Phase 3: Install Ubuntu</h3>
                 <div class="step">
-                    <div class="step-title">8. View Available Versions</div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">PowerShell</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>wsl --list --online</pre>
-                    </div>
-                    <div class="alert alert-warning">
-                        <div class="alert-title">⚠️ Note:</div>
-                        If the system says an update is required, press any key as prompted to update the WSL kernel before continuing.
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">9. Install Ubuntu</div>
-                    <div class="step-content">
-                        Run the installation command for version 24.04:
-                    </div>
+                    <div class="step-title">5. Install Ubuntu 24.04</div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">PowerShell</span>
@@ -717,508 +754,136 @@
 
             <div class="card fade-in-section">
                 <h3 class="card-title">Phase 4: User Configuration</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    Once the download finishes then
-                </p>
-
                 <div class="step">
-                    <div class="step-title">1. Enter Username</div>
+                    <div class="step-title">Create Username</div>
                     <div class="step-content">
-                        Choose a username using <strong>lowercase letters only</strong> and <strong>no spaces</strong>.
+                        Once Ubuntu launches, you'll be prompted to create a new user account. Enter a username (use lowercase letters only, no spaces). For example: <span class="inline-code">john</span> or <span class="inline-code">student</span>
                     </div>
                 </div>
-
+                
                 <div class="step">
-                    <div class="step-title">2. Enter Password</div>
+                    <div class="step-title">Set Password</div>
                     <div class="step-content">
-                        Set The Password As Your Year Of Birth (Example: 2000)
-                    </div>
-                    <div class="alert alert-info">
-                        <div class="alert-title">💡 Security Note:</div>
-                        The cursor will not move or show characters while typing for security reasons.
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">3. Confirm Password</div>
-                    <div class="step-content">
-                        Re-enter the same password.
-                    </div>
-                </div>
-
-                <div class="alert alert-success" style="margin-top: 2rem;">
-                    <div class="alert-title">✅ Installation Complete!</div>
-                    You can now launch your Linux terminal at any time by searching for <strong>"Ubuntu"</strong> in the Windows taskbar.
-                </div>
-            </div>
-        </section>
-
-        <section id="setup-tools" class="section">
-            <div class="section-header">
-                <div class="section-number">02</div>
-                <h2 class="section-title">Install Development Tools</h2>
-            </div>
-            <p class="section-description">
-                Set up essential development tools across Ubuntu, macOS, and Windows using a single automated Python script.
-            </p>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">What Gets Installed</h3>
-                <div class="features-grid">
-                    <div class="feature-column">
-                        <h4>System Tools</h4>
-                        <ul class="feature-list">
-                            <li>sudo</li>
-                            <li>python3, pip</li>
-                            <li>clang</li>
-                            <li>lldb</li>
-                            <li>micro (text editor)</li>
-                            <li>asciinema</li>
-                            <li>zip, unzip</li>
-                            <li>curl</li>
-                        </ul>
-                    </div>
-                    <div class="feature-column">
-                        <h4>Python Tools (in venv)</h4>
-                        <ul class="feature-list">
-                            <li>qrcode[pil]</li>
-                            <li>check50</li>
-                            <li>style50</li>
-                            <li>submit50</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="alert alert-info">
-                    <div class="alert-title">💡 Ubuntu 24.04 Note:</div>
-                    System Python is "externally managed" (PEP 668). This script avoids that issue by installing Python packages inside a virtual environment, not system-wide.
-                </div>
-            </div>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">Quick Start</h3>
-
-                <div class="step">
-                    <div class="step-title">1. Create the Script File</div>
-                    <div class="step-content">
-                        Create a file named <span class="inline-code">setup_tools.py</span> and paste the code from below.
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">2. Run the Script</div>
-                    
-                    <h4 style="margin: 1rem 0 0.5rem; color: var(--text-primary);">Ubuntu / Linux:</h4>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash (as root)</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>python3 setup_tools.py</pre>
-                    </div>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash (with sudo)</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>sudo python3 setup_tools.py</pre>
-                    </div>
-
-                    <h4 style="margin: 1.5rem 0 0.5rem; color: var(--text-primary);">macOS:</h4>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>python3 setup_tools.py</pre>
+                        After entering your username, you'll be asked to create a password. Choose something memorable like your birth year (e.g., <span class="inline-code">2005</span>) or a simple password you won't forget.
                     </div>
                     <div class="alert alert-warning">
-                        <div class="alert-title">⚠️ macOS Note:</div>
-                        If Homebrew is missing, the script will print instructions. Install Homebrew, then rerun.
+                        <div class="alert-title">⚠️ IMPORTANT - Password Security Behavior:</div>
+                        <ul>
+                            <li><strong>Your password will NOT be visible as you type</strong> - this is a security feature, not a bug</li>
+                            <li>You will see NO characters, dots, or asterisks appearing on screen while typing</li>
+                            <li>The cursor will NOT move as you type your password</li>
+                            <li>This is completely normal Linux behavior designed to protect your password</li>
+                            <li>Simply type your password carefully and press Enter when done</li>
+                            <li>You'll be asked to type it twice to confirm - both times it will be invisible</li>
+                        </ul>
                     </div>
-
-                    <h4 style="margin: 1.5rem 0 0.5rem; color: var(--text-primary);">Windows (PowerShell):</h4>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">PowerShell</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>py setup_tools.py</pre>
+                    <div class="alert alert-success">
+                        <div class="alert-title">✅ Tips for Success:</div>
+                        <ul>
+                            <li>Type slowly and carefully since you can't see what you're typing</li>
+                            <li>Don't panic if nothing appears - this is expected behavior</li>
+                            <li>If you make a mistake, press Backspace a few times and start over</li>
+                            <li>Remember your password - you'll need it for installing software later</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <section id="prereqs" class="section">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h2 class="section-title">Install Prerequisites</h2>
+            </div>
+            <p class="section-description">
+                Install the fundamental packages required to download and run the setup scripts.
+            </p>
+
+            <div class="card fade-in-section">
+                <h3 class="card-title">System Package Installation</h3>
                 <div class="step">
-                    <div class="step-title">3. Verify Installation</div>
+                    <div class="step-title">Run Update and Install</div>
+                    <div class="step-content">
+                        Copy and paste the following command into your Ubuntu terminal to install Python 3, Curl, Zip, and Unzip.
+                    </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">Bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>python3 --version
-pip3 --version
-clang --version
-lldb --version
-micro --version
-check50 --version</pre>
+                        <pre>sudo apt update && sudo apt install -y python3 curl zip unzip</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 Note:</div>
+                        Enter your password when prompted. The characters will not appear on screen while typing.
                     </div>
                 </div>
-            </div>
 
-            <div class="card fade-in-section">
-                <h3 class="card-title">Python Script: setup_tools.py</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                    Complete Python script for cross-platform tool installation. Click to expand and copy the code.
-                </p>
-
-                <div class="expandable-code">
-                    <button class="expand-btn" onclick="toggleCode(this)">
-                        <span>View Complete Python Code (setup_tools.py)</span>
-                    </button>
-                    <div class="code-content">
-                        <div class="code-block" style="margin-top: 1rem;">
-                            <div class="code-header">
-                                <span class="code-lang">Python - setup_tools.py</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy All</button>
-                            </div>
-<pre>#!/usr/bin/env python3
-import os
-import platform
-import shutil
-import subprocess
-import sys
-from typing import List, Optional, Tuple
-
-# -----------------------------
-# Your required packages/tools
-# -----------------------------
-PIP_PACKAGES = ["qrcode[pil]", "check50", "style50", "submit50"]
-
-# Linux (Ubuntu/Debian) APT packages
-APT_PACKAGES = [
-    "sudo",
-    "python3",
-    "python3-venv",
-    "python3-pip",
-    "clang",
-    "lldb",
-    "micro",
-    "asciinema",
-    "zip",
-    "unzip",
-    "curl",
-]
-
-# macOS Homebrew packages (some tools already exist on macOS, but brew keeps it consistent)
-BREW_PACKAGES = [
-    "micro",
-    "asciinema",
-    "llvm",   # provides clang/llc/lldb; macOS also has Apple clang via Xcode tools
-    "zip",
-    "unzip",
-    "curl",
-]
-
-# Windows winget package IDs (best-effort; availability can vary by machine)
-WINGET_PACKAGES = [
-    ("Micro Editor", "zyedidia.micro"),
-    ("LLVM (clang/lldb)", "LLVM.LLVM"),
-    ("cURL", "cURL.cURL"),
-    ("zip/unzip", None),  # usually available via built-in tar; we just verify commands
-]
-
-# Where to put the venv:
-# - Linux root: /opt/course-venv (shared)
-# - Otherwise: ~/course-venv
-def choose_venv_path() -> str:
-    if is_linux() and is_root():
-        return "/opt/course-venv"
-    return os.path.join(os.path.expanduser("~"), "course-venv")
-
-
-# -----------------------------
-# Helpers
-# -----------------------------
-def run(cmd: List[str], check: bool = True, env: Optional[dict] = None) -> subprocess.CompletedProcess:
-    print(f"\n==> {' '.join(cmd)}")
-    return subprocess.run(cmd, check=check, text=True, env=env)
-
-
-def is_root() -> bool:
-    return hasattr(os, "geteuid") and os.geteuid() == 0
-
-
-def is_linux() -> bool:
-    return platform.system().lower() == "linux"
-
-
-def is_macos() -> bool:
-    return platform.system().lower() == "darwin"
-
-
-def is_windows() -> bool:
-    return platform.system().lower() == "windows"
-
-
-def have(cmd: str) -> bool:
-    return shutil.which(cmd) is not None
-
-
-def first_line(cmd: List[str]) -> str:
-    if not have(cmd[0]):
-        return "not available"
-    try:
-        out = subprocess.check_output(cmd, text=True, stderr=subprocess.STDOUT).strip()
-        return out.splitlines()[0] if out else "unknown"
-    except Exception:
-        return "unknown"
-
-
-def ensure_admin_linux() -> List[str]:
-    """
-    Returns prefix for privileged commands:
-      - [] if root
-      - ['sudo'] if sudo exists
-    If sudo missing and not root -> exits with instructions.
-    """
-    if is_root():
-        return []
-    if have("sudo"):
-        return ["sudo"]
-    print("❌ sudo is not installed and you are not root.")
-    print("   First run must be as root (or via provider console):")
-    print("     python3 setup_tools.py")
-    sys.exit(1)
-
-
-# -----------------------------
-# System installs per OS
-# -----------------------------
-def install_on_ubuntu() -> None:
-    env = os.environ.copy()
-    env["DEBIAN_FRONTEND"] = "noninteractive"
-
-    prefix = ensure_admin_linux()
-
-    # Important: If sudo is missing, we must be root; prefix would be [].
-    run(prefix + ["apt-get", "update", "-y"], env=env)
-    run(prefix + ["apt-get", "install", "-y", *APT_PACKAGES], env=env)
-
-    # If we installed sudo just now and user reruns later as non-root, that's fine.
-
-
-def install_on_macos() -> None:
-    if not have("brew"):
-        print("❌ Homebrew (brew) not found.")
-        print("   Install Homebrew first, then rerun this script.")
-        print("   Command (copy/paste in Terminal):")
-        print('   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
-        return
-
-    run(["brew", "update"])
-    # brew install is idempotent; it will skip installed packages
-    run(["brew", "install", *BREW_PACKAGES])
-
-
-def install_on_windows() -> None:
-    if not have("winget"):
-        print("❌ winget not found. Install 'App Installer' from Microsoft Store or use Windows 10/11 with winget enabled.")
-        return
-
-    # Micro, LLVM, curl are installable.
-    # zip/unzip are usually covered by built-in tar; we only verify later.
-    for name, pkg_id in WINGET_PACKAGES:
-        if pkg_id is None:
-            continue
-        run(["winget", "install", "--id", pkg_id, "-e", "--accept-package-agreements", "--accept-source-agreements"], check=False)
-
-    # asciinema note:
-    print("\nℹ️ asciinema is not commonly available for native Windows.")
-    print("   Best option: use WSL (Ubuntu) and install asciinema there.")
-
-
-# -----------------------------
-# Python venv + pip installs
-# -----------------------------
-def ensure_venv(venv_path: str) -> Tuple[str, str]:
-    """
-    Creates venv if missing and returns (python_bin, pip_bin)
-    """
-    if not os.path.isdir(venv_path):
-        run([sys.executable, "-m", "venv", venv_path])
-
-    if is_windows():
-        python_bin = os.path.join(venv_path, "Scripts", "python.exe")
-        pip_bin = os.path.join(venv_path, "Scripts", "pip.exe")
-    else:
-        python_bin = os.path.join(venv_path, "bin", "python")
-        pip_bin = os.path.join(venv_path, "bin", "pip")
-
-    run([python_bin, "-m", "pip", "install", "-U", "pip", "setuptools", "wheel"])
-    return python_bin, pip_bin
-
-
-def pip_install_in_venv(pip_bin: str) -> None:
-    run([pip_bin, "install", "-U", *PIP_PACKAGES])
-
-
-def symlink_cli_tools_linux_shared(venv_path: str) -> None:
-    """
-    On Linux when venv is /opt/course-venv, symlink check50/style50/submit50 to /usr/local/bin
-    so all users can run them without activating venv.
-    """
-    if not is_linux():
-        return
-    if venv_path != "/opt/course-venv":
-        return
-
-    prefix = ensure_admin_linux()
-    link_dir = "/usr/local/bin"
-    tools = ["check50", "style50", "submit50"]
-
-    for tool in tools:
-        src = os.path.join(venv_path, "bin", tool)
-        dst = os.path.join(link_dir, tool)
-        if os.path.exists(src):
-            # ln -sf src dst
-            run(prefix + ["ln", "-sf", src, dst])
-        else:
-            print(f"⚠️ Tool not found in venv (skipping link): {src}")
-
-
-# -----------------------------
-# Version reporting
-# -----------------------------
-def print_versions(venv_python: str) -> None:
-    print("\n" + "=" * 60)
-    print("✅ Version check")
-    print("=" * 60)
-
-    # System commands
-    checks = [
-        ("python3", ["python3", "--version"]),
-        ("pip3", ["pip3", "--version"]),
-        ("clang", ["clang", "--version"]),
-        ("lldb", ["lldb", "--version"]),
-        ("micro", ["micro", "--version"]),
-        ("asciinema", ["asciinema", "--version"]),
-        ("curl", ["curl", "--version"]),
-        ("zip", ["zip", "-v"]),
-        ("unzip", ["unzip", "-v"]),
-        ("sudo", ["sudo", "--version"]),
-    ]
-
-    for name, cmd in checks:
-        # On Windows, many are different; we'll still attempt and show "not available" if missing
-        print(f"{name}: {first_line(cmd)}")
-
-    # Venv pip package versions
-    print("\nPIP packages (inside venv):")
-    # Note: qrcode[pil] dist name is "qrcode"
-    dists = ["qrcode", "check50", "style50", "submit50"]
-    for dist in dists:
-        code = (
-            "from importlib.metadata import version\n"
-            f"print('{dist}=' + version('{dist}'))\n"
-        )
-        try:
-            out = subprocess.check_output([venv_python, "-c", code], text=True).strip()
-            print(out)
-        except Exception:
-            print(f"{dist}=not installed")
-
-    print("\nDone.\n")
-
-
-# -----------------------------
-# Main
-# -----------------------------
-def main() -> None:
-    print(f"==> Detected OS: {platform.system()} {platform.release()}")
-
-    # 1) Install system tools depending on OS
-    if is_linux():
-        install_on_ubuntu()
-    elif is_macos():
-        install_on_macos()
-    elif is_windows():
-        install_on_windows()
-    else:
-        print("❌ Unsupported OS for automatic system installs.")
-        return
-
-    # 2) Create venv + install pip tools safely (avoids Ubuntu 24.04 PEP 668)
-    venv_path = choose_venv_path()
-    print(f"\n==> Using venv at: {venv_path}")
-    venv_python, venv_pip = ensure_venv(venv_path)
-    pip_install_in_venv(venv_pip)
-
-    # 3) Optional: Linux shared symlinks (so users can run check50 etc without activating)
-    symlink_cli_tools_linux_shared(venv_path)
-
-    # 4) Version report
-    print_versions(venv_python)
-
-
-if __name__ == "__main__":
-    try:
-        main()
-    except subprocess.CalledProcessError as e:
-        print("\n❌ Command failed:", e)
-        sys.exit(e.returncode)
-</pre>
-                        </div>
-                    </div>
+                <div class="asciinema-container">
+                    <div id="demo-player"></div>
                 </div>
-            </div>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">Virtual Environment Location</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                    The script automatically chooses a virtual environment location:
-                </p>
-                <ul class="feature-list">
-                    <li><strong>Linux (when run as root):</strong> <span class="inline-code">/opt/course-venv</span> (shared)</li>
-                    <li><strong>Other cases:</strong> <span class="inline-code">~/course-venv</span></li>
-                </ul>
-                <p style="color: var(--text-secondary); margin-top: 1rem;">
-                    This prevents system Python from being modified and keeps installs clean and repeatable.
-                </p>
             </div>
         </section>
 
-        <section id="lldb" class="section">
+        <section id="setup" class="section">
             <div class="section-header">
                 <div class="section-number">03</div>
-                <h2 class="section-title">Setup AIK BT for LLDB</h2>
+                <h2 class="section-title">Download & Configure Tools</h2>
             </div>
             <p class="section-description">
-                Install and configure the AIK BT (backtrace) extension for LLDB debugger on Ubuntu. This provides enhanced debugging capabilities with custom backtrace visualization.
+                Download the setup scripts, unzip them, and execute the automation tools.
             </p>
 
             <div class="card fade-in-section">
-                <h3 class="card-title">What Gets Installed</h3>
-                <ul class="feature-list">
-                    <li>lldb-15 + python3-lldb-15 (via apt)</li>
-                    <li>aik_bt.py + aik_renderer.py (downloaded to ~/.lldb/)</li>
-                    <li>Auto-import configuration in ~/.lldbinit</li>
-                    <li>PYTHONPATH export in ~/.bashrc</li>
-                    <li>lldb-15 set as default lldb command</li>
-                </ul>
-            </div>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">Installation Steps</h3>
+                <h3 class="card-title">Step-by-Step Configuration</h3>
 
                 <div class="step">
-                    <div class="step-title">1. Create the Script</div>
+                    <div class="step-title">1. Download the Zip File</div>
                     <div class="step-content">
-                        Create a file named <span class="inline-code">install_aikbt.py</span> and paste the Python code from below.
+                        Use curl to download the <code>setup_scripts.zip</code> file.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>curl -L INSERT_ZIP_URL_HERE -o setup_scripts.zip</pre>
                     </div>
                 </div>
 
                 <div class="step">
-                    <div class="step-title">2. Run the Installer</div>
+                    <div class="step-title">2. Unzip and Navigate</div>
+                    <div class="step-content">
+                        Unzip the folder and enter the directory.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>unzip setup_scripts.zip && cd setup_scripts</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">3. Run Setup Tools</div>
+                    <div class="step-content">
+                        This script installs clang, lldb, micro, and other development essentials.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>python3 setup_tools.py</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">4. Run AIKBT Installer</div>
+                    <div class="step-content">
+                        This configures the custom debugger interface.
+                    </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">Bash</span>
@@ -1226,14 +891,10 @@ if __name__ == "__main__":
                         </div>
                         <pre>python3 install_aikbt.py</pre>
                     </div>
-                    <div class="alert alert-info">
-                        <div class="alert-title">💡 Note:</div>
-                        If you have sudo access, the script will prompt for your password during package installation.
-                    </div>
                 </div>
 
                 <div class="step">
-                    <div class="step-title">3. Apply Changes</div>
+                    <div class="step-title">5. Apply Changes</div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">Bash</span>
@@ -1241,266 +902,95 @@ if __name__ == "__main__":
                         </div>
                         <pre>source ~/.bashrc</pre>
                     </div>
-                    <div class="step-content" style="margin-top: 0.5rem;">
-                        This loads the new PYTHONPATH environment variable.
-                    </div>
                 </div>
+            </div>
+        </section>
 
+        <section id="workflow" class="section">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <h2 class="section-title">Verification & Workflow</h2>
+            </div>
+            <p class="section-description">
+                Verify the installation and learn the standard workflow for compiling and debugging code.
+            </p>
+
+            <div class="card fade-in-section">
+                <h3 class="card-title">1. Verify Installations</h3>
+                <div class="step-content" style="margin-bottom: 1rem;">
+                    Ensure all tools are correctly installed by checking their versions.
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-lang">Bash</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre>python3 --version
+clang --version
+lldb --version
+check50 --version</pre>
+                </div>
+            </div>
+
+            <div class="card fade-in-section">
+                <h3 class="card-title">2. Compile and Debug Workflow</h3>
+                
                 <div class="step">
-                    <div class="step-title">4. Launch LLDB</div>
+                    <div class="step-title">Enter Code Directory</div>
+                    <div class="step-content">
+                        Navigate to the code folder provided in the zip file.
+                    </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">Bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>lldb</pre>
-                    </div>
-                    <div class="step-content" style="margin-top: 0.5rem;">
-                        You should see this message when LLDB starts:
-                    </div>
-                    <div class="alert alert-success" style="margin-top: 1rem;">
-                        <div class="alert-title">✅ Expected Output:</div>
-                        <code>Loaded: aik bt</code>
+                        <pre>cd code</pre>
                     </div>
                 </div>
 
                 <div class="step">
-                    <div class="step-title">5. Test the Command</div>
+                    <div class="step-title">Compile the Code</div>
                     <div class="step-content">
-                        Inside LLDB, try these commands:
+                        Compile <code>sum_max.c</code> using clang with debug flags (<code>-g</code>) and no optimization (<code>-O0</code>).
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>clang -g -O0 sum_max.c -o sum_max</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">Start Debugger (LLDB)</div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>lldb sum_max</pre>
+                    </div>
+                    <div class="alert alert-success">
+                        <div class="alert-title">✅ Check:</div>
+                        You should see the message: <code>Loaded: aik bt</code>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">Debug Session</div>
+                    <div class="step-content">
+                        Run the following commands inside LLDB to set a breakpoint, run the program, and view the visual backtrace.
                     </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">LLDB</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>(lldb) aik bt
-(lldb) aik bt 5</pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">Python Script: install_aikbt.py</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                    Complete Python script for AIK BT installation. Click to expand and copy the code.
-                </p>
-
-                <div class="expandable-code">
-                    <button class="expand-btn" onclick="toggleCode(this)">
-                        <span>View Complete Python Code (install_aikbt.py)</span>
-                    </button>
-                    <div class="code-content">
-                        <div class="code-block" style="margin-top: 1rem;">
-                            <div class="code-header">
-                                <span class="code-lang">Python - install_aikbt.py</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy All</button>
-                            </div>
-<pre>#!/usr/bin/env python3
-import os
-import sys
-import subprocess
-from pathlib import Path
-
-AIK_BT_URL = "https://raw.githubusercontent.com/aikaryashala/practice/refs/heads/main/lldb/aik_bt.py"
-AIK_RENDERER_URL = "https://raw.githubusercontent.com/aikaryashala/practice/refs/heads/main/lldb/aik_renderer.py"
-
-def run(cmd, check=True):
-    print(f"\n>>> {' '.join(cmd)}")
-    return subprocess.run(cmd, check=check)
-
-def have_cmd(cmd):
-    from shutil import which
-    return which(cmd) is not None
-
-def ensure_line_in_file(file_path: Path, line: str):
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    if file_path.exists():
-        existing = file_path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        if line in existing:
-            print(f"OK: Line already present in {file_path}")
-            return
-    else:
-        existing = []
-
-    # Append with newline safety
-    with file_path.open("a", encoding="utf-8") as f:
-        if existing and not file_path.read_text(encoding="utf-8", errors="ignore").endswith("\n"):
-            f.write("\n")
-        f.write(line + "\n")
-    print(f"OK: Added line to {file_path}")
-
-def download_to(url: str, dest: Path):
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    if not have_cmd("curl"):
-        print("ERROR: curl not found. Install it with: sudo apt install -y curl")
-        sys.exit(1)
-
-    run(["curl", "-fsSL", url, "-o", str(dest)], check=True)
-    # Basic sanity check
-    if not dest.exists() or dest.stat().st_size < 10:
-        print(f"ERROR: Download seems failed or file too small: {dest}")
-        sys.exit(1)
-    print(f"OK: Downloaded {dest} ({dest.stat().st_size} bytes)")
-
-def is_root():
-    return os.geteuid() == 0
-
-def apt_install(packages):
-    # Use sudo if not root
-    if is_root():
-        run(["apt", "update"], check=True)
-        run(["apt", "install", "-y"] + packages, check=True)
-    else:
-        if not have_cmd("sudo"):
-            print("ERROR: sudo not found. Install sudo as root, or run this script as root.")
-            sys.exit(1)
-        run(["sudo", "apt", "update"], check=True)
-        run(["sudo", "apt", "install", "-y"] + packages, check=True)
-
-def setup_update_alternatives():
-    # Make lldb-15 default if update-alternatives exists and lldb-15 exists
-    if not have_cmd("update-alternatives"):
-        print("NOTE: update-alternatives not found; skipping.")
-        return
-
-    lldb15 = Path("/usr/bin/lldb-15")
-    if not lldb15.exists():
-        print("NOTE: /usr/bin/lldb-15 not found; skipping update-alternatives step.")
-        return
-
-    if is_root():
-        run(["update-alternatives", "--install", "/usr/bin/lldb", "lldb", "/usr/bin/lldb-15", "100"], check=False)
-    else:
-        run(["sudo", "update-alternatives", "--install", "/usr/bin/lldb", "lldb", "/usr/bin/lldb-15", "100"], check=False)
-
-    print("OK: update-alternatives attempted (lldb -> lldb-15)")
-
-def main():
-    home = Path.home()
-    lldb_dir = home / ".lldb"
-    aik_bt_path = lldb_dir / "aik_bt.py"
-    aik_renderer_path = lldb_dir / "aik_renderer.py"
-    lldbinit_path = home / ".lldbinit"
-    bashrc_path = home / ".bashrc"
-
-    print("=== AIK BT (LLDB) Installer for Ubuntu ===")
-
-    # 1) Install required packages
-    print("\n[1/5] Installing LLDB + Python LLDB bindings (llvm-15)...")
-    apt_install(["lldb-15", "python3-lldb-15", "curl"])
-
-    # 2) Download scripts
-    print("\n[2/5] Downloading aik_bt.py and aik_renderer.py to ~/.lldb/ ...")
-    download_to(AIK_BT_URL, aik_bt_path)
-    download_to(AIK_RENDERER_URL, aik_renderer_path)
-
-    # 3) Configure ~/.lldbinit
-    print("\n[3/5] Configuring ~/.lldbinit ...")
-    import_line = f"command script import {aik_bt_path}"
-    ensure_line_in_file(lldbinit_path, import_line)
-
-    # 4) Make lldb-15 default (optional)
-    print("\n[4/5] Setting lldb-15 as default (optional) ...")
-    setup_update_alternatives()
-
-    # 5) Add PYTHONPATH to ~/.bashrc
-    print("\n[5/5] Adding PYTHONPATH to ~/.bashrc ...")
-    py_line = 'export PYTHONPATH=/usr/lib/llvm-15/lib/python3.10/dist-packages:$PYTHONPATH'
-    ensure_line_in_file(bashrc_path, py_line)
-
-    print("\n=== DONE ===")
-    print("Now run:")
-    print("  source ~/.bashrc")
-    print("  lldb")
-    print("\nInside LLDB you should see:")
-    print("  Loaded: aik bt")
-    print("\nThen try:")
-    print("  (lldb) aik bt")
-    print("  (lldb) aik bt 5")
-
-if __name__ == "__main__":
-    try:
-        main()
-    except subprocess.CalledProcessError as e:
-        print(f"\nERROR: Command failed with exit code {e.returncode}")
-        sys.exit(e.returncode)
-</pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">Manual Verification</h3>
-
-                <div class="step">
-                    <div class="step-title">Check LLDB Version</div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>lldb --version</pre>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">Check Downloaded Files</div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>ls -lh ~/.lldb/</pre>
-                    </div>
-                    <div class="step-content" style="margin-top: 0.5rem;">
-                        You should see: <span class="inline-code">aik_bt.py</span> and <span class="inline-code">aik_renderer.py</span>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">Check Configuration</div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>cat ~/.lldbinit</pre>
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>grep PYTHONPATH ~/.bashrc</pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">Troubleshooting</h3>
-
-                <div class="alert alert-warning">
-                    <div class="alert-title">⚠️ "Loaded: aik bt" doesn't appear</div>
-                    <ul>
-                        <li>.bashrc not sourced: Run <span class="inline-code">source ~/.bashrc</span></li>
-                        <li>LLDB not using lldb-15: Run <span class="inline-code">lldb-15</span> directly</li>
-                        <li>Python path mismatch: Check your Ubuntu Python version</li>
-                    </ul>
-                </div>
-
-                <div class="alert alert-info">
-                    <div class="alert-title">💡 Python Version Mismatch</div>
-                    <p style="margin-top: 0.5rem;">
-                        The script assumes Python 3.10 (Ubuntu 22.04). For Ubuntu 24.04 (Python 3.12), you may need to adjust the PYTHONPATH:
-                    </p>
-                    <div class="code-block" style="margin-top: 1rem;">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>export PYTHONPATH=/usr/lib/llvm-15/lib/python3.12/dist-packages:$PYTHONPATH</pre>
+                        <pre>(lldb) b main
+(lldb) run
+(lldb) aik bt</pre>
                     </div>
                 </div>
             </div>
@@ -1509,14 +999,32 @@ if __name__ == "__main__":
 
     <footer>
         <div class="container">
-            <p>© 2026 Student Development Environment Setup Guide</p>
+            <p>© 2026 AI-Karyashala Setup Guide</p>
             <p style="margin-top: 0.5rem; font-size: clamp(0.8rem, 2vw, 0.9rem);">
                 Scripts are safe to run multiple times • All installations use official package managers
             </p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.7.0/dist/bundle/asciinema-player.min.js"></script>
     <script>
+        // Wait for the page to load before initializing player
+        window.addEventListener('DOMContentLoaded', function() {
+            // Initialize Asciinema Player
+            AsciinemaPlayer.create(
+                'https://asciinema.org/a/shHcjaRzwKTba6fp.cast',
+                document.getElementById('demo-player'),
+                {
+                    loop: true,
+                    autoPlay: true,
+                    cols: 80,
+                    rows: 24,
+                    fit: 'width',
+                    terminalFontSize: 'small'
+                }
+            );
+        });
+
         // Copy code functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block');
@@ -1536,12 +1044,25 @@ if __name__ == "__main__":
             });
         }
 
-        // Toggle expandable code sections
-        function toggleCode(button) {
-            const content = button.nextElementSibling;
-            button.classList.toggle('active');
-            content.classList.toggle('expanded');
-        }
+        // Scroll to Top Button Functionality
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-pill').forEach(pill => {
@@ -1555,7 +1076,6 @@ if __name__ == "__main__":
                     block: 'start'
                 });
 
-                // Update active state
                 document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
             });
