@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Karyashala Setup Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.7.0/dist/bundle/asciinema-player.min.css" />
     <style>
         * {
             margin: 0;
@@ -824,7 +823,7 @@
                 </div>
 
                 <div class="asciinema-container">
-                    <div id="demo-player"></div>
+                    <script src="https://asciinema.org/a/shHcjaRzwKTba6fp.js" id="asciicast-shHcjaRzwKTba6fp" async="true" data-autoplay="true" data-loop="true"></script>
                 </div>
             </div>
         </section>
@@ -851,7 +850,7 @@
                             <span class="code-lang">Bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>curl -L -o setup_scripts.zip https://github.com/aikaryashala/bootcamp/raw/b4a8b253eba8a70c1ee282a1b2b47cedac588bdc/docs/kiet/setup_scripts.zip</pre>
+                        <pre>curl -L INSERT_ZIP_URL_HERE -o setup_scripts.zip</pre>
                     </div>
                 </div>
 
@@ -1179,25 +1178,7 @@ check50 --version</pre>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.7.0/dist/bundle/asciinema-player.min.js"></script>
     <script>
-        // Wait for the page to load before initializing player
-        window.addEventListener('DOMContentLoaded', function() {
-            // Initialize Asciinema Player
-            AsciinemaPlayer.create(
-                'https://asciinema.org/a/shHcjaRzwKTba6fp.cast',
-                document.getElementById('demo-player'),
-                {
-                    loop: true,
-                    autoPlay: true,
-                    cols: 80,
-                    rows: 24,
-                    fit: 'width',
-                    terminalFontSize: 'small'
-                }
-            );
-        });
-
         // Copy code functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block');
