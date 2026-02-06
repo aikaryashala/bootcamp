@@ -277,6 +277,8 @@
         .section:nth-child(2) { animation-delay: 0.8s; }
         .section:nth-child(3) { animation-delay: 1s; }
         .section:nth-child(4) { animation-delay: 1.2s; }
+        .section:nth-child(5) { animation-delay: 1.4s; }
+        .section:nth-child(6) { animation-delay: 1.6s; }
 
         .section-header {
             display: flex;
@@ -668,6 +670,8 @@
             <a href="#prereqs" class="nav-pill">2. Prerequisites</a>
             <a href="#setup" class="nav-pill">3. Tools Setup</a>
             <a href="#workflow" class="nav-pill">4. Verification & Workflow</a>
+            <a href="#qrcode" class="nav-pill">5. QR Code Generator</a>
+            <a href="#reels" class="nav-pill">6. Reel Generator</a>
         </nav>
 
         <section id="wsl" class="section">
@@ -991,6 +995,126 @@ check50 --version</pre>
                         <pre>(lldb) b main
 (lldb) run
 (lldb) aik bt</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="qrcode" class="section">
+            <div class="section-header">
+                <div class="section-number">05</div>
+                <h2 class="section-title">Contact QR Code Generator</h2>
+            </div>
+            <p class="section-description">
+                Install and configure the Contact QR Code Generator to create shareable contact information.
+            </p>
+
+            <div class="card fade-in-section">
+                <h3 class="card-title">Setup QR Code Generator</h3>
+
+                <div class="step">
+                    <div class="step-title">1. Install QR Library and Download Script</div>
+                    <div class="step-content">
+                        Install the QR code generation library with image support and download the contact QR generator script from GitHub.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>pip install qrcode[pil] && curl -O https://raw.githubusercontent.com/sandeepbangaru17/qr/main/contact_qr.py</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 What this does:</div>
+                        <ul>
+                            <li>Installs the <code>qrcode</code> library with PIL (Python Imaging Library) support</li>
+                            <li>Downloads the <code>contact_qr.py</code> script to your current directory</li>
+                            <li>Prepares your environment to generate QR codes for contact sharing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">2. Run the QR Code Generator</div>
+                    <div class="step-content">
+                        Execute the script to generate contact QR codes.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>python3 contact_qr.py</pre>
+                    </div>
+                    <div class="alert alert-success">
+                        <div class="alert-title">✅ Expected Output:</div>
+                        <ul>
+                            <li>The script will prompt you to enter contact information (name, phone, email, etc.)</li>
+                            <li>A QR code image file will be generated in your current directory</li>
+                            <li>You can scan this QR code with any smartphone to quickly save contact details</li>
+                            <li>Perfect for sharing your contact information at events or in your portfolio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reels" class="section">
+            <div class="section-header">
+                <div class="section-number">06</div>
+                <h2 class="section-title">Reel Generator</h2>
+            </div>
+            <p class="section-description">
+                Setup and run the Reel Generator to create engaging video content from your learnings.
+            </p>
+
+            <div class="card fade-in-section">
+                <h3 class="card-title">Install and Run Reel Generator</h3>
+
+                <div class="step">
+                    <div class="step-title">1. Download and Execute Setup Script</div>
+                    <div class="step-content">
+                        This command downloads and runs the Reel Generator setup script directly from GitHub.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>curl -fsSL https://raw.githubusercontent.com/ppavankumar19/Reel_Generator/refs/heads/main/setup_reels.py | python3</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 What this does:</div>
+                        <ul>
+                            <li>Downloads the Reel Generator setup script</li>
+                            <li>Installs all necessary dependencies automatically</li>
+                            <li>Configures the video generation environment</li>
+                            <li>Starts a local web server on port 8000</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">2. Access Your Generated Video</div>
+                    <div class="step-content">
+                        Once the script completes, open your web browser and access the generated video.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Browser URL</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>http://localhost:8000/videos/my-learnings.mp4</pre>
+                    </div>
+                    <div class="alert alert-success">
+                        <div class="alert-title">✅ How to use:</div>
+                        <ul>
+                            <li>Copy the URL above</li>
+                            <li>Open any web browser (Chrome, Firefox, Edge)</li>
+                            <li>Paste the URL in the address bar and press Enter</li>
+                            <li>Your generated learning reel video will play directly in the browser</li>
+                            <li>You can download the video or share it on social media</li>
+                        </ul>
                     </div>
                 </div>
             </div>
