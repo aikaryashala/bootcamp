@@ -1117,6 +1117,55 @@ check50 --version</pre>
                         </ul>
                     </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-title">3. Alternative: Access Using Ubuntu IP (If localhost doesn't work)</div>
+                    <div class="step-content">
+                        If the localhost URL doesn't work, you can access the video using your Ubuntu machine's IP address.
+                    </div>
+                    
+                    <div style="margin-top: 1rem;">
+                        <div class="step-content" style="margin-bottom: 0.75rem;">
+                            <strong>First, find your Ubuntu IP address:</strong>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Bash</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre>hostname -I</pre>
+                        </div>
+                        <div class="alert alert-info">
+                            <div class="alert-title">💡 Understanding the output:</div>
+                            <ul>
+                                <li>The command will display one or more IP addresses</li>
+                                <li>Use the <strong>first IP address</strong> shown (usually starts with 172.x.x.x or 192.168.x.x)</li>
+                                <li>Example output: <code>172.24.144.1 192.168.1.100</code> → use <code>172.24.144.1</code></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem;">
+                        <div class="step-content" style="margin-bottom: 0.75rem;">
+                            <strong>Then, use this URL format in your browser:</strong>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Browser URL Format</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre>http://&lt;ubuntu-ip&gt;:8000/videos/my-learnings.mp4</pre>
+                        </div>
+                        <div class="alert alert-warning">
+                            <div class="alert-title">⚠️ Replace &lt;ubuntu-ip&gt; with your actual IP:</div>
+                            <ul>
+                                <li>If your IP is <code>172.24.144.1</code>, use: <code>http://172.24.144.1:8000/videos/my-learnings.mp4</code></li>
+                                <li>If your IP is <code>192.168.1.100</code>, use: <code>http://192.168.1.100:8000/videos/my-learnings.mp4</code></li>
+                                <li>Make sure to replace <code>&lt;ubuntu-ip&gt;</code> with the IP address from the <code>hostname -I</code> command</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
