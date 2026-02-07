@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Session - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #151b3d;
+            --bg-card: #1a2249;
+            --accent-primary: #f59e0b;
+            --accent-secondary: #fbbf24;
+            --accent-tertiary: #fb923c;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #2d3a5f;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(30deg, var(--accent-primary) 12%, transparent 12.5%, transparent 87%, var(--accent-primary) 87.5%, var(--accent-primary)),
+                linear-gradient(150deg, var(--accent-primary) 12%, transparent 12.5%, transparent 87%, var(--accent-primary) 87.5%, var(--accent-primary)),
+                linear-gradient(30deg, var(--accent-primary) 12%, transparent 12.5%, transparent 87%, var(--accent-primary) 87.5%, var(--accent-primary)),
+                linear-gradient(150deg, var(--accent-primary) 12%, transparent 12.5%, transparent 87%, var(--accent-primary) 87.5%, var(--accent-primary));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+            animation: patternShift 20s linear infinite;
+        }
+
+        @keyframes patternShift {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(140px); }
+        }
+
+        /* Glow Orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-primary);
+            top: 20%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-tertiary);
+            bottom: 20%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .glow-orb-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--accent-secondary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.1); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.35; transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        /* Home Button - Top Left */
+        .home-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+        }
+
+        .home-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .icon-container {
+            margin-bottom: 2rem;
+            animation: bounce 2s ease-in-out infinite, rotate 10s linear infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .icon {
+            font-size: 6rem;
+            filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.7));
+        }
+
+        /* Special Badge */
+        .special-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            animation: fadeIn 1s ease-out 0.5s backwards, glow 2s ease-in-out 1.5s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: 0 10px 50px rgba(245, 158, 11, 0.6); }
+        }
+
+        /* Typing Animation */
+        .typing-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typing-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: normal;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            overflow: hidden;
+            border-right: 4px solid var(--accent-primary);
+            white-space: nowrap;
+            animation: typing 3s steps(14) 1s forwards, blink 0.75s step-end infinite;
+            width: 0;
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .subtitle {
+            margin-top: 2rem;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            opacity: 0;
+            animation: fadeIn 1s ease-out 4s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Decorative Stars */
+        .stars-container {
+            margin: 2rem auto;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 5s forwards;
+        }
+
+        .star {
+            display: inline-block;
+            font-size: 2rem;
+            margin: 0 0.5rem;
+            animation: twinkle 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+        }
+
+        .star:nth-child(1) { animation-delay: 0s; }
+        .star:nth-child(2) { animation-delay: 0.3s; }
+        .star:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* Special Message */
+        .special-message {
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 6s forwards;
+        }
+
+        .special-message-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .special-message-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .home-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+
+            .icon {
+                font-size: 4rem;
+            }
+
+            .typing-text {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .special-badge {
+                font-size: 0.75rem;
+                padding: 0.4rem 1.2rem;
+            }
+
+            .special-message {
+                padding: 1rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-wrapper {
+                padding: 1rem;
+            }
+
+            .icon {
+                font-size: 3rem;
+            }
+
+            .star {
+                font-size: 1.5rem;
+                margin: 0 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Home Button -->
+    <a href="bootcamp.html" class="home-btn">← Back to Bootcamp</a>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <div class="special-badge">⭐ Special Session ⭐</div>
+        
+        <div class="icon-container">
+            <div class="icon">✨</div>
+        </div>
+        
+        <div class="typing-container">
+            <h1 class="typing-text">Coming Soon...</h1>
+        </div>
+        
+        <div class="stars-container">
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+        </div>
+        
+        <p class="subtitle">Something extraordinary is in the works!</p>
+        
+        <div class="special-message">
+            <h3 class="special-message-title">Get Ready for an Exclusive Experience</h3>
+            <p class="special-message-text">
+                This special session will cover advanced topics including SSH configuration, 
+                AI tools exploration, and cutting-edge techniques. Stay tuned for an 
+                unforgettable learning experience!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
