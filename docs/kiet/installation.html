@@ -668,7 +668,6 @@
             <a href="#step1" class="nav-pill">1. Ubuntu Setup</a>
             <a href="#step2" class="nav-pill">2. Prerequisites</a>
             <a href="#step3" class="nav-pill">3. Tools Setup</a>
-            <!-- <a href="#step4" class="nav-pill">4. Verification & Workflow</a> -->
             <a href="#step5" class="nav-pill">5. QR Code Generator</a>
             <a href="#step6" class="nav-pill">6. Reel Generator</a>
         </nav>
@@ -909,96 +908,6 @@
             </div> 
         </section> 
 
-        <!-- <section id="step4" class="section"> -->
-            <!-- <div class="section-header"> -->
-                <!-- <div class="section-number">04</div> -->
-                <!-- <h2 class="section-title">Verification & Workflow</h2> -->
-            <!-- </div> -->
-            <!-- <p class="section-description"> -->
-                <!-- Verify the installation and learn the standard workflow for compiling and debugging code. -->
-            <!-- </p> -->
-<!--  -->
-            <!-- <div class="card fade-in-section"> -->
-                <!-- <h3 class="card-title">1. Verify Installations</h3> -->
-                <!-- <div class="step-content" style="margin-bottom: 1rem;"> -->
-                    <!-- Ensure all tools are correctly installed by checking their versions. -->
-                <!-- </div> -->
-                <!-- <div class="code-block"> -->
-                    <!-- <div class="code-header"> -->
-                        <!-- <span class="code-lang">Bash</span> -->
-                        <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
-                    <!-- </div> -->
-                    <!-- <pre>python3 --version -->
-<!-- clang --version -->
-<!-- lldb --version -->
-<!-- </pre> -->
-                <!-- </div> -->
-            <!-- </div> -->
-<!--  -->
-            <!-- <div class="card fade-in-section"> -->
-                <!-- <h3 class="card-title">2. Compile and Debug Workflow</h3> -->
-                <!--  -->
-                <!-- <div class="step"> -->
-                    <!-- <div class="step-title">Enter Code Directory</div> -->
-                    <!-- <div class="step-content"> -->
-                        <!-- Navigate to the code folder provided in the zip file. -->
-                    <!-- </div> -->
-                    <!-- <div class="code-block"> -->
-                        <!-- <div class="code-header"> -->
-                            <!-- <span class="code-lang">Bash</span> -->
-                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
-                        <!-- </div> -->
-                        <!-- <pre>cd setup_scripts/code/</pre> -->
-                    <!-- </div> -->
-                <!-- </div> -->
-<!--  -->
-                <!-- <div class="step"> -->
-                    <!-- <div class="step-title">Compile the Code</div> -->
-                    <!-- <div class="step-content"> -->
-                        <!-- Compile <code>sum_max.c</code> using clang with debug flags (<code>-g</code>) and no optimization (<code>-O0</code>). -->
-                    <!-- </div> -->
-                    <!-- <div class="code-block"> -->
-                        <!-- <div class="code-header"> -->
-                            <!-- <span class="code-lang">Bash</span> -->
-                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
-                        <!-- </div> -->
-                        <!-- <pre>clang -g -O0 sum_max.c -o sum_max</pre> -->
-                    <!-- </div> -->
-                <!-- </div> -->
-<!--  -->
-                <!-- <div class="step"> -->
-                    <!-- <div class="step-title">Start Debugger (LLDB)</div> -->
-                    <!-- <div class="code-block"> -->
-                        <!-- <div class="code-header"> -->
-                            <!-- <span class="code-lang">Bash</span> -->
-                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
-                        <!-- </div> -->
-                        <!-- <pre>lldb sum_max</pre> -->
-                    <!-- </div> -->
-                    <!-- <div class="alert alert-success"> -->
-                        <!-- <div class="alert-title">✅ Check:</div> -->
-                        <!-- You should see the message: <code>Loaded: aik bt</code> -->
-                    <!-- </div> -->
-                <!-- </div> -->
-<!--  -->
-                <!-- <div class="step"> -->
-                    <!-- <div class="step-title">Debug Session</div> -->
-                    <!-- <div class="step-content"> -->
-                        <!-- Run the following commands inside LLDB to set a breakpoint, run the program, and view the visual backtrace. -->
-                    <!-- </div> -->
-                    <!-- <div class="code-block"> -->
-                        <!-- <div class="code-header"> -->
-                            <!-- <span class="code-lang">LLDB</span> -->
-                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
-                        <!-- </div> -->
-                        <!-- <pre>(lldb) b main -->
-<!-- (lldb) run -->
-<!-- (lldb) aik bt</pre> -->
-                    <!-- </div> -->
-                <!-- </div> -->
-            <!-- </div> -->
-        <!-- </section> -->
-
         <section id="step5" class="section">
             <div class="section-header">
                 <div class="section-number">05</div>
@@ -1021,8 +930,8 @@
                             <span class="code-lang">Bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>python3 -m pip install qrcode[pil] --break-system-packages</pre>
-						<pre>curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/qr/main/contact_qr.py</pre>
+                        <pre>python3 -m pip install --user qrcode[pil] --break-system-packages
+curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/qr/main/contact_qr.py</pre>
                     </div>
                     <div class="alert alert-info">
                         <div class="alert-title">💡 What this does:</div>
@@ -1171,16 +1080,15 @@
     </div>
 
     <footer>
-<div class="container">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Quick References</h3>
-            <a href="quickreference.html">Quick Reference Guide</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick References</h3>
+                    <a href="quickreference.html">Quick Reference Guide</a>
+                </div>
+                <p>© 2026 AI-Karyashala</p>
+            </div>
         </div>
-        <p>© 2026 AI-Karyashala</p>
-    </div>
-</div>
-
     </footer>
 
     <script>
