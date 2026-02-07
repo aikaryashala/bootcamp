@@ -668,7 +668,7 @@
             <a href="#step1" class="nav-pill">1. Ubuntu Setup</a>
             <a href="#step2" class="nav-pill">2. Prerequisites</a>
             <a href="#step3" class="nav-pill">3. Tools Setup</a>
-            <a href="#step4" class="nav-pill">4. Verification & Workflow</a>
+            <!-- <a href="#step4" class="nav-pill">4. Verification & Workflow</a> -->
             <a href="#step5" class="nav-pill">5. QR Code Generator</a>
             <a href="#step6" class="nav-pill">6. Reel Generator</a>
         </nav>
@@ -828,176 +828,176 @@
             </div>
         </section>
 
-        <section id="step3" class="section">
-            <div class="section-header">
-                <div class="section-number">03</div>
-                <h2 class="section-title">Download & Configure Tools</h2>
-            </div>
-            <p class="section-description">
-                Download the setup scripts, unzip them, and execute the automation tools.
-            </p>
+        <section id="step3" class="section"> 
+            <div class="section-header"> 
+                <div class="section-number">03</div> 
+                <h2 class="section-title">Download & Configure Tools</h2> 
+            </div> 
+            <p class="section-description"> 
+                Download the setup scripts, unzip them, and execute the automation tools. 
+            </p> 
 
-            <div class="card fade-in-section">
-                <h3 class="card-title">Step-by-Step Configuration</h3>
+            <div class="card fade-in-section"> 
+                <h3 class="card-title">Step-by-Step Configuration</h3> 
 
-                <div class="step">
-                    <div class="step-title">1. Download the Zip File</div>
-                    <div class="step-content">
-                        Use curl to download the <code>setup_scripts.zip</code> file.
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>curl -L -o setup_scripts.zip https://github.com/aikaryashala/bootcamp/raw/b4a8b253eba8a70c1ee282a1b2b47cedac588bdc/docs/kiet/setup_scripts.zip</pre>
-                    </div>
-                </div>
+                <div class="step"> 
+                    <div class="step-title">1. Download the Zip File</div> 
+                    <div class="step-content"> 
+                        Use curl to download the <code>setup_scripts.zip</code> file. 
+                    </div> 
+                    <div class="code-block"> 
+                        <div class="code-header"> 
+                            <span class="code-lang">Bash</span> 
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
+                        </div> 
+                        <pre>curl -L -o setup_scripts.zip https://github.com/aikaryashala/bootcamp/raw/b4a8b253eba8a70c1ee282a1b2b47cedac588bdc/docs/kiet/setup_scripts.zip</pre> 
+                    </div> 
+                </div> 
 
-                <div class="step">
-                    <div class="step-title">2. Unzip and Navigate</div>
-                    <div class="step-content">
-                        Unzip the folder and enter the directory.
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>unzip setup_scripts.zip && cd setup_scripts</pre>
-                    </div>
-                </div>
+                <div class="step"> 
+                    <div class="step-title">2. Unzip and Navigate</div> 
+                    <div class="step-content"> 
+                        Unzip the folder and enter the directory. 
+                    </div> 
+                    <div class="code-block"> 
+                        <div class="code-header"> 
+                            <span class="code-lang">Bash</span> 
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
+                        </div> 
+                        <pre>unzip setup_scripts.zip && cd setup_scripts</pre> 
+                    </div> 
+                </div> 
 
-                <div class="step">
-                    <div class="step-title">3. Run Setup Tools</div>
-                    <div class="step-content">
-                        This script installs clang, lldb, micro, and other development essentials.
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>python3 setup_tools.py</pre>
-                    </div>
-                </div>
+                <div class="step"> 
+                    <div class="step-title">3. Run Setup Tools</div> 
+                    <div class="step-content"> 
+                        This script installs clang, lldb, micro, and other development essentials. 
+                    </div> 
+                    <div class="code-block"> 
+                        <div class="code-header"> 
+                            <span class="code-lang">Bash</span> 
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
+                        </div> 
+                        <pre>python3 setup_tools.py</pre> 
+                    </div> 
+                </div> 
 
-                <div class="step">
-                    <div class="step-title">4. Run AIKBT Installer</div>
-                    <div class="step-content">
-                        This configures the custom debugger interface.
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>python3 install_aikbt.py</pre>
-                    </div>
-                </div>
+                <div class="step"> 
+                    <div class="step-title">4. Run AIKBT Installer</div> 
+                    <div class="step-content"> 
+                        This configures the custom debugger interface. 
+                    </div> 
+                    <div class="code-block"> 
+                        <div class="code-header"> 
+                            <span class="code-lang">Bash</span> 
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
+                        </div> 
+                        <pre>python3 install_aikbt.py</pre> 
+                    </div> 
+                </div> 
 
-                <div class="step">
-                    <div class="step-title">5. Apply Changes</div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>source ~/.bashrc</pre>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div class="step"> 
+                    <div class="step-title">5. Apply Changes</div> 
+                    <div class="code-block"> 
+                        <div class="code-header"> 
+                            <span class="code-lang">Bash</span> 
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
+                        </div> 
+                        <pre>source ~/.bashrc</pre> 
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
 
-        <section id="step4" class="section">
-            <div class="section-header">
-                <div class="section-number">04</div>
-                <h2 class="section-title">Verification & Workflow</h2>
-            </div>
-            <p class="section-description">
-                Verify the installation and learn the standard workflow for compiling and debugging code.
-            </p>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">1. Verify Installations</h3>
-                <div class="step-content" style="margin-bottom: 1rem;">
-                    Ensure all tools are correctly installed by checking their versions.
-                </div>
-                <div class="code-block">
-                    <div class="code-header">
-                        <span class="code-lang">Bash</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre>python3 --version
-clang --version
-lldb --version
-</pre>
-                </div>
-            </div>
-
-            <div class="card fade-in-section">
-                <h3 class="card-title">2. Compile and Debug Workflow</h3>
-                
-                <div class="step">
-                    <div class="step-title">Enter Code Directory</div>
-                    <div class="step-content">
-                        Navigate to the code folder provided in the zip file.
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>cd setup_scripts/code/</pre>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">Compile the Code</div>
-                    <div class="step-content">
-                        Compile <code>sum_max.c</code> using clang with debug flags (<code>-g</code>) and no optimization (<code>-O0</code>).
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>clang -g -O0 sum_max.c -o sum_max</pre>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">Start Debugger (LLDB)</div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">Bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>lldb sum_max</pre>
-                    </div>
-                    <div class="alert alert-success">
-                        <div class="alert-title">✅ Check:</div>
-                        You should see the message: <code>Loaded: aik bt</code>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">Debug Session</div>
-                    <div class="step-content">
-                        Run the following commands inside LLDB to set a breakpoint, run the program, and view the visual backtrace.
-                    </div>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-lang">LLDB</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre>(lldb) b main
-(lldb) run
-(lldb) aik bt</pre>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- <section id="step4" class="section"> -->
+            <!-- <div class="section-header"> -->
+                <!-- <div class="section-number">04</div> -->
+                <!-- <h2 class="section-title">Verification & Workflow</h2> -->
+            <!-- </div> -->
+            <!-- <p class="section-description"> -->
+                <!-- Verify the installation and learn the standard workflow for compiling and debugging code. -->
+            <!-- </p> -->
+<!--  -->
+            <!-- <div class="card fade-in-section"> -->
+                <!-- <h3 class="card-title">1. Verify Installations</h3> -->
+                <!-- <div class="step-content" style="margin-bottom: 1rem;"> -->
+                    <!-- Ensure all tools are correctly installed by checking their versions. -->
+                <!-- </div> -->
+                <!-- <div class="code-block"> -->
+                    <!-- <div class="code-header"> -->
+                        <!-- <span class="code-lang">Bash</span> -->
+                        <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
+                    <!-- </div> -->
+                    <!-- <pre>python3 --version -->
+<!-- clang --version -->
+<!-- lldb --version -->
+<!-- </pre> -->
+                <!-- </div> -->
+            <!-- </div> -->
+<!--  -->
+            <!-- <div class="card fade-in-section"> -->
+                <!-- <h3 class="card-title">2. Compile and Debug Workflow</h3> -->
+                <!--  -->
+                <!-- <div class="step"> -->
+                    <!-- <div class="step-title">Enter Code Directory</div> -->
+                    <!-- <div class="step-content"> -->
+                        <!-- Navigate to the code folder provided in the zip file. -->
+                    <!-- </div> -->
+                    <!-- <div class="code-block"> -->
+                        <!-- <div class="code-header"> -->
+                            <!-- <span class="code-lang">Bash</span> -->
+                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
+                        <!-- </div> -->
+                        <!-- <pre>cd setup_scripts/code/</pre> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="step"> -->
+                    <!-- <div class="step-title">Compile the Code</div> -->
+                    <!-- <div class="step-content"> -->
+                        <!-- Compile <code>sum_max.c</code> using clang with debug flags (<code>-g</code>) and no optimization (<code>-O0</code>). -->
+                    <!-- </div> -->
+                    <!-- <div class="code-block"> -->
+                        <!-- <div class="code-header"> -->
+                            <!-- <span class="code-lang">Bash</span> -->
+                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
+                        <!-- </div> -->
+                        <!-- <pre>clang -g -O0 sum_max.c -o sum_max</pre> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="step"> -->
+                    <!-- <div class="step-title">Start Debugger (LLDB)</div> -->
+                    <!-- <div class="code-block"> -->
+                        <!-- <div class="code-header"> -->
+                            <!-- <span class="code-lang">Bash</span> -->
+                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
+                        <!-- </div> -->
+                        <!-- <pre>lldb sum_max</pre> -->
+                    <!-- </div> -->
+                    <!-- <div class="alert alert-success"> -->
+                        <!-- <div class="alert-title">✅ Check:</div> -->
+                        <!-- You should see the message: <code>Loaded: aik bt</code> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="step"> -->
+                    <!-- <div class="step-title">Debug Session</div> -->
+                    <!-- <div class="step-content"> -->
+                        <!-- Run the following commands inside LLDB to set a breakpoint, run the program, and view the visual backtrace. -->
+                    <!-- </div> -->
+                    <!-- <div class="code-block"> -->
+                        <!-- <div class="code-header"> -->
+                            <!-- <span class="code-lang">LLDB</span> -->
+                            <!-- <button class="copy-btn" onclick="copyCode(this)">Copy</button> -->
+                        <!-- </div> -->
+                        <!-- <pre>(lldb) b main -->
+<!-- (lldb) run -->
+<!-- (lldb) aik bt</pre> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        <!-- </section> -->
 
         <section id="step5" class="section">
             <div class="section-header">
