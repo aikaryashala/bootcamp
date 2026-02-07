@@ -1021,7 +1021,11 @@
                             <span class="code-lang">Bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>sudo apt install python3-qrcode python3-pil -y && curl -O https://raw.githubusercontent.com/sandeepbangaru17/qr/main/contact_qr.py</pre>
+                        <pre>sudo apt update && sudo apt install -y python3 python3-pip curl && \
+                        python3 -m pip install --user --upgrade pip && \
+                        python3 -m pip install --user qrcode[pil] && \
+                        curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/qr/main/contact_qr.py
+                        </pre>
                     </div>
                     <div class="alert alert-info">
                         <div class="alert-title">💡 What this does:</div>
