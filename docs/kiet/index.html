@@ -170,6 +170,38 @@
             50% { transform: scale(1.2); }
         }
 
+        /* Build Profile Button */
+        .profile-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .profile-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+            border-color: #10b981;
+        }
+
+        .profile-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .profile-icon {
+            font-size: 1.5rem;
+        }
+
+        .profile-btn:hover .profile-icon {
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-8px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(-4px); }
+        }
+
         /* Header */
         header {
             padding: 4rem 0 2rem;
@@ -327,7 +359,7 @@
                 min-width: 140px;
             }
 
-            .game-icon, .upload-icon {
+            .game-icon, .upload-icon, .profile-icon {
                 font-size: 1.2rem;
             }
 
@@ -356,7 +388,7 @@
                 min-width: 120px;
             }
 
-            .game-icon, .upload-icon {
+            .game-icon, .upload-icon, .profile-icon {
                 font-size: 1rem;
             }
         }
@@ -375,6 +407,11 @@
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScOt5Pigm9LJ6MM_5f0OT7YdIXp4oT4FbvQ5PtvSD-Nsa9QBw/viewform?usp=publish-editor" target="_blank" class="top-btn upload-btn">
             <span class="upload-icon">🎵</span>
             <span>Upload MP3</span>
+        </a>
+
+        <a href="assets/websitesteps.pdf" target="_blank" class="top-btn profile-btn">
+            <span class="profile-icon">👤</span>
+            <span>Build Profile</span>
         </a>
     </div>
 
