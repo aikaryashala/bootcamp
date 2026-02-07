@@ -921,7 +921,35 @@
                 <h3 class="card-title">Setup QR Code Generator</h3>
 
                 <div class="step">
-                    <div class="step-title">1. Install QR Library and Download Script</div>
+                    <div class="step-title">1. Create Project Folder</div>
+                    <div class="step-content">
+                        Create a new folder named <code>kiet</code> for the QR code generator project.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>mkdir kiet</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">2. Navigate to Project Folder</div>
+                    <div class="step-content">
+                        Change directory to the newly created <code>kiet</code> folder.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>cd kiet</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">3. Install QR Library and Download Script</div>
                     <div class="step-content">
                         Install the QR code generation library with image support and download the contact QR generator script from GitHub.
                     </div>
@@ -937,16 +965,16 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
                         <div class="alert-title">💡 What this does:</div>
                         <ul>
                             <li>Installs the <code>qrcode</code> library with PIL (Python Imaging Library) support</li>
-                            <li>Downloads the <code>contact_qr.py</code> script to your current directory</li>
+                            <li>Downloads the <code>contact_qr.py</code> script to the current directory</li>
                             <li>Prepares your environment to generate QR codes for contact sharing</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="step">
-                    <div class="step-title">2. Run the QR Code Generator</div>
+                    <div class="step-title">4. Run the QR Code Generator</div>
                     <div class="step-content">
-                        Execute the script to generate contact QR codes.
+                        Execute the script to generate contact QR codes. You'll be prompted to enter your contact information.
                     </div>
                     <div class="code-block">
                         <div class="code-header">
@@ -959,10 +987,106 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
                         <div class="alert-title">✅ Expected Output:</div>
                         <ul>
                             <li>The script will prompt you to enter contact information (name, phone, email, etc.)</li>
-                            <li>A QR code image file will be generated in your current directory</li>
+                            <li>A QR code image file will be generated in the <code>kiet</code> folder</li>
+                            <li>The QR code image will be ready to view in your browser</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">5. Start Local Web Server</div>
+                    <div class="step-content">
+                        Start a Python HTTP server to view your generated QR code in the browser. You can use any port number (e.g., 8000, 8080, 3000).
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>python3 -m http.server 8000</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 Server Information:</div>
+                        <ul>
+                            <li>The server will start on port 8000 (you can change this to any available port)</li>
+                            <li>You'll see a message: <code>Serving HTTP on 0.0.0.0 port 8000...</code></li>
+                            <li>Keep this terminal window open - the server must run to view your QR code</li>
+                            <li>Press <code>Ctrl+C</code> to stop the server when you're done</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">6. View QR Code in Browser</div>
+                    <div class="step-content">
+                        Open your web browser and navigate to the localhost URL to view your generated QR code.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Browser URL</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>http://localhost:8000/</pre>
+                    </div>
+                    <div class="alert alert-success">
+                        <div class="alert-title">✅ How to use:</div>
+                        <ul>
+                            <li>Copy the URL above and paste it in your browser's address bar</li>
+                            <li>You'll see a directory listing with your generated QR code image file</li>
+                            <li>Click on the QR code image file (usually named like <code>contact_qr.png</code>) to view it</li>
                             <li>You can scan this QR code with any smartphone to quickly save contact details</li>
                             <li>Perfect for sharing your contact information at events or in your portfolio</li>
                         </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">7. Alternative: Access Using Ubuntu IP (If localhost doesn't work)</div>
+                    <div class="step-content">
+                        If the localhost URL doesn't work, you can access the QR code using your Ubuntu machine's IP address.
+                    </div>
+                    
+                    <div style="margin-top: 1rem;">
+                        <div class="step-content" style="margin-bottom: 0.75rem;">
+                            <strong>First, find your Ubuntu IP address (open a new terminal window):</strong>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Bash</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre>hostname -I</pre>
+                        </div>
+                        <div class="alert alert-info">
+                            <div class="alert-title">💡 Understanding the output:</div>
+                            <ul>
+                                <li>The command will display one or more IP addresses</li>
+                                <li>Use the <strong>first IP address</strong> shown (usually starts with 172.x.x.x or 192.168.x.x)</li>
+                                <li>Example output: <code>172.24.144.1 192.168.1.100</code> → use <code>172.24.144.1</code></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem;">
+                        <div class="step-content" style="margin-bottom: 0.75rem;">
+                            <strong>Then, use this URL format in your browser:</strong>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Browser URL Format</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre>http://&lt;ubuntu-ip&gt;:8000/</pre>
+                        </div>
+                        <div class="alert alert-warning">
+                            <div class="alert-title">⚠️ Replace &lt;ubuntu-ip&gt; with your actual IP:</div>
+                            <ul>
+                                <li>If your IP is <code>172.24.144.1</code>, use: <code>http://172.24.144.1:8000/</code></li>
+                                <li>If your IP is <code>192.168.1.100</code>, use: <code>http://192.168.1.100:8000/</code></li>
+                                <li>Make sure to replace <code>&lt;ubuntu-ip&gt;</code> with the IP address from the <code>hostname -I</code> command</li>
+                                <li>Change the port number (8000) if you used a different port when starting the server</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
