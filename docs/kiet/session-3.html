@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Student Development Hub</title>
+    <title>Session-3 | Student Development Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -34,8 +34,6 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
             position: relative;
         }
 
@@ -63,37 +61,13 @@
             100% { transform: translateY(140px); }
         }
 
-        /* Glow Orbs */
-        .glow-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.2;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .glow-orb-1 {
-            width: 500px;
-            height: 500px;
-            background: var(--accent-secondary);
-            top: 20%;
-            left: 10%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .glow-orb-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--accent-primary);
-            bottom: 20%;
-            right: 10%;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.1); }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+            flex: 1;
         }
 
         /* Home Button - Top Left */
@@ -136,155 +110,215 @@
             transform: translateY(-1px);
         }
 
-        /* Main Content */
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
+        /* Header */
+        header {
+            padding: 4rem 0 2rem;
             text-align: center;
-            padding: 2rem;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        .icon-container {
             margin-bottom: 2rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .icon {
-            font-size: 6rem;
-            filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.5));
-        }
-
-        /* Typing Animation */
-        .typing-container {
-            display: inline-block;
             position: relative;
         }
 
-        .typing-text {
+        .glow-orb {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb-1 {
+            background: var(--accent-secondary);
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+            50% { transform: translateX(-50%) translateY(-20px) scale(1.1); }
+        }
+
+        h1 {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: normal;
+            margin-bottom: 0.5rem;
             background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: inline-block;
-            overflow: hidden;
-            border-right: 4px solid var(--accent-primary);
-            white-space: nowrap;
-            animation: typing 3s steps(14) 1s forwards, blink 0.75s step-end infinite;
-            width: 0;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .subtitle {
-            margin-top: 2rem;
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: clamp(1rem, 3vw, 1.25rem);
             color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 4rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        /* Large Action Buttons */
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            height: 100%;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(124, 58, 237, 0.05));
             opacity: 0;
-            animation: fadeIn 1s ease-out 4s forwards;
+            transition: opacity 0.4s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .action-btn:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+                        0 0 20px rgba(0, 217, 255, 0.1);
         }
 
-        /* Decorative Elements */
-        .decorative-line {
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-            margin: 2rem auto;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 5s forwards, pulse 2s ease-in-out 6s infinite;
+        .action-btn:hover::before {
+            opacity: 1;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scaleX(1); }
-            50% { opacity: 1; transform: scaleX(1.2); }
+        .btn-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.4s ease;
+        }
+
+        .action-btn:hover .btn-icon {
+            transform: scale(1.1);
+        }
+
+        .btn-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .btn-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: auto;
+            background: rgba(10, 14, 39, 0.8);
         }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
+            header {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .action-btn {
+                padding: 2.5rem 1.5rem;
+            }
+
             .home-btn {
                 padding: 0.6rem 1.2rem;
                 font-size: 0.9rem;
                 top: 1.5rem;
                 left: 1.5rem;
             }
-
-            .icon {
-                font-size: 4rem;
-            }
-
-            .typing-text {
-                font-size: clamp(2rem, 10vw, 3rem);
-            }
-
-            .subtitle {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .content-wrapper {
-                padding: 1rem;
-            }
-
-            .icon {
-                font-size: 3rem;
-            }
         }
     </style>
 </head>
 <body>
     <div class="bg-pattern"></div>
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
 
     <!-- Home Button -->
-    <a href="bootcamp.html" class="home-btn">← Back to Bootcamp</a>
+    <a href="bootcamp.html" class="home-btn">Go To Bootcamp.</a>
 
-    <!-- Main Content -->
-    <div class="content-wrapper">
-        <div class="icon-container">
-            <div class="icon">🚀</div>
+    <header>
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="container">
+            <h1>Pre-Bootcamp</h1>
+            <p class="subtitle">Essential preparation materials</p>
+            <p class="subtitle">Choose your learning track</p>
         </div>
-        
-        <div class="typing-container">
-            <h1 class="typing-text">Coming Soon...</h1>
+    </header>
+
+    <div class="container">
+        <div class="menu-grid">
+            <a href="systeminternals_preb.html" class="action-btn">
+                <span class="btn-icon">⚙️</span>
+                <span class="btn-title">System Internals</span>
+                <span class="btn-desc">Learn operating systems fundamentals</span>
+            </a>
+
+            <a href="https://rohinibarla.com/c/" class="action-btn">
+                <span class="btn-icon">💻</span>
+                <span class="btn-title">C Programming</span>
+                <span class="btn-desc">Master the C programming language</span>
+            </a>
         </div>
-        
-        <div class="decorative-line"></div>
-        
-        <p class="subtitle">Stay tuned for updates!</p>
     </div>
+
+    <footer>
+<div class="container">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Quick References</h3>
+            <a href="quickreference.html">Quick Reference Guide</a>
+        </div>
+        <p>© 2026 AI-Karyashala</p>
+    </div>
+</div>
+
+    </footer>
 </body>
 </html>
