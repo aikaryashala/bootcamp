@@ -668,8 +668,8 @@
             <a href="#step1" class="nav-pill">1. Ubuntu Setup</a>
             <a href="#step2" class="nav-pill">2. Prerequisites</a>
             <a href="#step3" class="nav-pill">3. Tools Setup</a>
-            <a href="#step5" class="nav-pill">5. QR Code Generator</a>
-            <a href="#step6" class="nav-pill">6. Reel Generator</a>
+            <a href="#step5" class="nav-pill">4. QR Code Generator</a>
+            <a href="#step6" class="nav-pill">5. Reel Generator</a>
         </nav>
 
         <section id="step1" class="section">
@@ -723,7 +723,7 @@
                     </div>
                 </div>
                 <div class="step">
-                    <div class="step-title">3. Enable Virtual Machine Platform</div>
+                    <div class="step-title">4. Enable Virtual Machine Platform</div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">PowerShell</span>
@@ -733,7 +733,7 @@
                     </div>
                 </div>
                 <div class="step">
-                    <div class="step-title">4. Restart & Verify</div>
+                    <div class="step-title">5. Restart & Verify</div>
                     <div class="step-content">
                         Restart your computer. Open PowerShell as Administrator and run <span class="inline-code">wsl --list --online</span> to verify.
                     </div>
@@ -743,7 +743,7 @@
             <div class="card fade-in-section">
                 <h3 class="card-title">Phase 3: Install Ubuntu</h3>
                 <div class="step">
-                    <div class="step-title">5. Install Ubuntu 24.04</div>
+                    <div class="step-title">6. Install Ubuntu 24.04</div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">PowerShell</span>
@@ -827,90 +827,90 @@
             </div>
         </section>
 
-        <section id="step3" class="section"> 
-            <div class="section-header"> 
-                <div class="section-number">03</div> 
-                <h2 class="section-title">Download & Configure Tools</h2> 
-            </div> 
-            <p class="section-description"> 
-                Download the setup scripts, unzip them, and execute the automation tools. 
-            </p> 
+        <section id="step3" class="section">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <h2 class="section-title">Download & Configure Tools</h2>
+            </div>
+            <p class="section-description">
+                Download the setup scripts, unzip them, and execute the automation tools.
+            </p>
 
-            <div class="card fade-in-section"> 
-                <h3 class="card-title">Step-by-Step Configuration</h3> 
+            <div class="card fade-in-section">
+                <h3 class="card-title">Step-by-Step Configuration</h3>
 
-                <div class="step"> 
-                    <div class="step-title">1. Download the Zip File</div> 
-                    <div class="step-content"> 
-                        Use curl to download the <code>setup_scripts.zip</code> file. 
-                    </div> 
-                    <div class="code-block"> 
-                        <div class="code-header"> 
-                            <span class="code-lang">Bash</span> 
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
-                        </div> 
-                        <pre>curl -L -o setup_scripts.zip https://github.com/aikaryashala/bootcamp/raw/b4a8b253eba8a70c1ee282a1b2b47cedac588bdc/docs/kiet/setup_scripts.zip</pre> 
-                    </div> 
-                </div> 
+                <div class="step">
+                    <div class="step-title">1. Download the Zip File</div>
+                    <div class="step-content">
+                        Use curl to download the <code>setup_scripts.zip</code> file.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>curl -L -o setup_scripts.zip https://github.com/aikaryashala/bootcamp/raw/b4a8b253eba8a70c1ee282a1b2b47cedac588bdc/docs/kiet/setup_scripts.zip</pre>
+                    </div>
+                </div>
 
-                <div class="step"> 
-                    <div class="step-title">2. Unzip and Navigate</div> 
-                    <div class="step-content"> 
-                        Unzip the folder and enter the directory. 
-                    </div> 
-                    <div class="code-block"> 
-                        <div class="code-header"> 
-                            <span class="code-lang">Bash</span> 
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
-                        </div> 
-                        <pre>unzip setup_scripts.zip && cd setup_scripts</pre> 
-                    </div> 
-                </div> 
+                <div class="step">
+                    <div class="step-title">2. Unzip and Navigate</div>
+                    <div class="step-content">
+                        Unzip the folder and enter the directory.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>unzip setup_scripts.zip && cd setup_scripts</pre>
+                    </div>
+                </div>
 
-                <div class="step"> 
-                    <div class="step-title">3. Run Setup Tools</div> 
-                    <div class="step-content"> 
-                        This script installs clang, lldb, micro, and other development essentials. 
-                    </div> 
-                    <div class="code-block"> 
-                        <div class="code-header"> 
-                            <span class="code-lang">Bash</span> 
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
-                        </div> 
-                        <pre>python3 setup_tools.py</pre> 
-                    </div> 
-                </div> 
+                <div class="step">
+                    <div class="step-title">3. Run Setup Tools</div>
+                    <div class="step-content">
+                        This script installs clang, lldb, micro, and other development essentials.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>python3 setup_tools.py</pre>
+                    </div>
+                </div>
 
-                <div class="step"> 
-                    <div class="step-title">4. Run AIKBT Installer</div> 
-                    <div class="step-content"> 
-                        This configures the custom debugger interface. 
-                    </div> 
-                    <div class="code-block"> 
-                        <div class="code-header"> 
-                            <span class="code-lang">Bash</span> 
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
-                        </div> 
-                        <pre>python3 install_aikbt.py</pre> 
-                    </div> 
-                </div> 
+                <div class="step">
+                    <div class="step-title">4. Run AIKBT Installer</div>
+                    <div class="step-content">
+                        This configures the custom debugger interface.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>python3 install_aikbt.py</pre>
+                    </div>
+                </div>
 
-                <div class="step"> 
-                    <div class="step-title">5. Apply Changes</div> 
-                    <div class="code-block"> 
-                        <div class="code-header"> 
-                            <span class="code-lang">Bash</span> 
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button> 
-                        </div> 
-                        <pre>source ~/.bashrc</pre> 
-                    </div> 
-                </div> 
-            </div> 
-        </section> 
+                <div class="step">
+                    <div class="step-title">5. Apply Changes</div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>source ~/.bashrc</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="step5" class="section">
             <div class="section-header">
-                <div class="section-number">05</div>
+                <div class="section-number">04</div>
                 <h2 class="section-title">Contact QR Code Generator</h2>
             </div>
             <p class="section-description">
@@ -996,7 +996,7 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
                 <div class="step">
                     <div class="step-title">5. Start Local Web Server</div>
                     <div class="step-content">
-                        Start a Python HTTP server to view your generated QR code in the browser. You can use any port number (e.g., 8000, 8080, 3000).
+                        Start a Python HTTP server to view your generated QR code in the browser.
                     </div>
                     <div class="code-block">
                         <div class="code-header">
@@ -1008,10 +1008,10 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
                     <div class="alert alert-info">
                         <div class="alert-title">💡 Server Information:</div>
                         <ul>
-                            <li>The server will start on port 8000 (you can change this to any available port)</li>
+                            <li>The server will start on port 8000</li>
                             <li>You'll see a message: <code>Serving HTTP on 0.0.0.0 port 8000...</code></li>
-                            <li>Keep this terminal window open - the server must run to view your QR code</li>
-                            <li>Press <code>Ctrl+C</code> to stop the server when you're done</li>
+                            <li>Keep this terminal window open while viewing your QR code</li>
+                            <li>Press <code>Ctrl+C</code> to stop the server when done</li>
                         </ul>
                     </div>
                 </div>
@@ -1019,7 +1019,7 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
                 <div class="step">
                     <div class="step-title">6. View QR Code in Browser</div>
                     <div class="step-content">
-                        Open your web browser and navigate to the localhost URL to view your generated QR code.
+                        Open your web browser and navigate to localhost to view your generated QR code.
                     </div>
                     <div class="code-block">
                         <div class="code-header">
@@ -1031,62 +1031,10 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
                     <div class="alert alert-success">
                         <div class="alert-title">✅ How to use:</div>
                         <ul>
-                            <li>Copy the URL above and paste it in your browser's address bar</li>
-                            <li>You'll see a directory listing with your generated QR code image file</li>
-                            <li>Click on the QR code image file (usually named like <code>contact_qr.png</code>) to view it</li>
-                            <li>You can scan this QR code with any smartphone to quickly save contact details</li>
-                            <li>Perfect for sharing your contact information at events or in your portfolio</li>
+                            <li>Copy the URL and paste it in your browser</li>
+                            <li>Click on the QR code image file to view it</li>
+                            <li>Scan with your smartphone to save contact details</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-title">7. Alternative: Access Using Ubuntu IP (If localhost doesn't work)</div>
-                    <div class="step-content">
-                        If the localhost URL doesn't work, you can access the QR code using your Ubuntu machine's IP address.
-                    </div>
-                    
-                    <div style="margin-top: 1rem;">
-                        <div class="step-content" style="margin-bottom: 0.75rem;">
-                            <strong>First, find your Ubuntu IP address (open a new terminal window):</strong>
-                        </div>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-lang">Bash</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
-                            <pre>hostname -I</pre>
-                        </div>
-                        <div class="alert alert-info">
-                            <div class="alert-title">💡 Understanding the output:</div>
-                            <ul>
-                                <li>The command will display one or more IP addresses</li>
-                                <li>Use the <strong>first IP address</strong> shown (usually starts with 172.x.x.x or 192.168.x.x)</li>
-                                <li>Example output: <code>172.24.144.1 192.168.1.100</code> → use <code>172.24.144.1</code></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 1.5rem;">
-                        <div class="step-content" style="margin-bottom: 0.75rem;">
-                            <strong>Then, use this URL format in your browser:</strong>
-                        </div>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-lang">Browser URL Format</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
-                            <pre>http://&lt;ubuntu-ip&gt;:8000/</pre>
-                        </div>
-                        <div class="alert alert-warning">
-                            <div class="alert-title">⚠️ Replace &lt;ubuntu-ip&gt; with your actual IP:</div>
-                            <ul>
-                                <li>If your IP is <code>172.24.144.1</code>, use: <code>http://172.24.144.1:8000/</code></li>
-                                <li>If your IP is <code>192.168.1.100</code>, use: <code>http://192.168.1.100:8000/</code></li>
-                                <li>Make sure to replace <code>&lt;ubuntu-ip&gt;</code> with the IP address from the <code>hostname -I</code> command</li>
-                                <li>Change the port number (8000) if you used a different port when starting the server</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1094,110 +1042,366 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
 
         <section id="step6" class="section">
             <div class="section-header">
-                <div class="section-number">06</div>
-                <h2 class="section-title">Reel Generator</h2>
+                <div class="section-number">05</div>
+                <h2 class="section-title">Reel Generator - Complete Activity</h2>
             </div>
             <p class="section-description">
-                Setup and run the Reel Generator to create engaging video content from your learnings.
+                Create your own "What I Learned Today" video reels from scratch. Watch the existing video, customize it with your content, and generate your personalized learning reel!
             </p>
 
             <div class="card fade-in-section">
-                <h3 class="card-title">Install and Run Reel Generator</h3>
+                <h3 class="card-title">Part 1: Initial Setup & Viewing Existing Video</h3>
 
                 <div class="step">
-                    <div class="step-title">1. Download and Execute Setup Script</div>
+                    <div class="step-title">1. Ensure You're in Home Directory</div>
                     <div class="step-content">
-                        This command downloads and runs the Reel Generator setup script directly from GitHub.
+                        Navigate back to your home directory to start fresh.
                     </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">Bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>curl -fsSL https://raw.githubusercontent.com/ppavankumar19/Reel_Generator/refs/heads/main/setup_reels.py | python3</pre>
+                        <pre>cd ~</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">2. Update System Packages</div>
+                    <div class="step-content">
+                        Update your package list to ensure you have the latest software information.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>sudo apt update</pre>
                     </div>
                     <div class="alert alert-info">
-                        <div class="alert-title">💡 What this does:</div>
+                        <div class="alert-title">💡 Why update?</div>
                         <ul>
-                            <li>Downloads the Reel Generator setup script</li>
-                            <li>Installs all necessary dependencies automatically</li>
-                            <li>Configures the video generation environment</li>
-                            <li>Starts a local web server on port 8000</li>
+                            <li>Ensures you have the latest package information</li>
+                            <li>Prevents installation errors</li>
+                            <li>Takes only a few seconds</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="step">
-                    <div class="step-title">2. Access Your Generated Video</div>
+                    <div class="step-title">3. Download Setup Script</div>
                     <div class="step-content">
-                        Once the script completes, open your web browser and access the generated video.
+                        Download the automated setup script that will install all dependencies and set up the reel generator.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>curl -fsSL -o setup_reels.py https://raw.githubusercontent.com/ppavankumar19/Reel_Generator/refs/heads/main/setup_reels.py</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 What this downloads:</div>
+                        <ul>
+                            <li>Automated setup script for the reel generator</li>
+                            <li>Will install Node.js, pnpm, and all project dependencies</li>
+                            <li>Generates a sample video automatically</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">4. Run Setup Script</div>
+                    <div class="step-content">
+                        Execute the setup script. This will take a few minutes as it installs everything needed.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>python3 setup_reels.py</pre>
+                    </div>
+                    <div class="alert alert-warning">
+                        <div class="alert-title">⚠️ This will take 5-10 minutes:</div>
+                        <ul>
+                            <li>Installing Node.js and pnpm package manager</li>
+                            <li>Downloading project dependencies</li>
+                            <li>Generating your first sample video</li>
+                            <li>Don't close the terminal - wait for it to complete!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">5. Start Web Server to View Video</div>
+                    <div class="step-content">
+                        After the setup completes, start a web server to view the generated video.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>python3 -m http.server 8001</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 Why port 8001?</div>
+                        <ul>
+                            <li>We use port 8001 to avoid conflicts with QR code server (port 8000)</li>
+                            <li>You can use any available port (8002, 8003, etc.)</li>
+                            <li>Keep this terminal window open while viewing the video</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">6. Watch the Existing Video</div>
+                    <div class="step-content">
+                        Open your browser and watch the sample video that was generated.
                     </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">Browser URL</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre>http://localhost:8000/videos/my-learnings.mp4</pre>
+                        <pre>http://localhost:8001/what-i-learned-today-reels/out/video.mp4</pre>
                     </div>
                     <div class="alert alert-success">
-                        <div class="alert-title">✅ How to use:</div>
+                        <div class="alert-title">✅ You should see:</div>
                         <ul>
-                            <li>Copy the URL above</li>
-                            <li>Open any web browser (Chrome, Firefox, Edge)</li>
-                            <li>Paste the URL in the address bar and press Enter</li>
-                            <li>Your generated learning reel video will play directly in the browser</li>
-                            <li>You can download the video or share it on social media</li>
+                            <li>A sample "What I Learned Today" reel video</li>
+                            <li>Default content showing algorithm principles</li>
+                            <li>Background music playing</li>
+                            <li>This is what you'll customize in the next steps!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <div class="alert alert-warning">
+                        <div class="alert-title">⚠️ If localhost doesn't work - Use Ubuntu IP:</div>
+                        <ul>
+                            <li>Open a <strong>new terminal</strong> (don't close the server)</li>
+                            <li>Run: <code>hostname -I</code></li>
+                            <li>Use the first IP address (e.g., 172.24.144.1)</li>
+                            <li>Access: <code>http://&lt;your-ip&gt;:8001/what-i-learned-today-reels/out/video.mp4</code></li>
+                            <li>Example: <code>http://172.24.144.1:8001/what-i-learned-today-reels/out/video.mp4</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in-section">
+                <h3 class="card-title">Part 2: Customize & Create Your Own Video</h3>
+
+                <div class="step">
+                    <div class="step-title">7. Stop the Web Server</div>
+                    <div class="step-content">
+                        Go back to the terminal running the web server and stop it.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Action</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>Press Ctrl+C in the terminal</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">8. Navigate to Project Directory</div>
+                    <div class="step-content">
+                        Change to the reel generator project directory.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>cd ~/what-i-learned-today-reels</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">9. Edit Content File</div>
+                    <div class="step-content">
+                        Open the content file to add your own learnings. Use the micro text editor.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>micro public/content.json</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 Editing Tips:</div>
+                        <ul>
+                            <li>The file contains your learning points in JSON format</li>
+                            <li>Replace the sample text with what YOU learned today</li>
+                            <li>Keep the same structure - just change the text inside quotes</li>
+                            <li>Save: <code>Ctrl+S</code></li>
+                            <li>Exit: <code>Ctrl+Q</code></li>
+                        </ul>
+                    </div>
+                    <div class="alert alert-success">
+                        <div class="alert-title">✅ Example content structure:</div>
+                        <ul>
+                            <li>"I learned how to install Ubuntu on Windows using WSL"</li>
+                            <li>"I understood the 5 principles of algorithms"</li>
+                            <li>"I created my first QR code for contact sharing"</li>
+                            <li>Add 3-5 learning points for best results</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="step">
-                    <div class="step-title">3. Alternative: Access Using Ubuntu IP (If localhost doesn't work)</div>
+                    <div class="step-title">10. Add Your Music (Optional)</div>
                     <div class="step-content">
-                        If the localhost URL doesn't work, you can access the video using your Ubuntu machine's IP address.
+                        You can add your own background music MP3 file to the public folder.
                     </div>
-                    
-                    <div style="margin-top: 1rem;">
-                        <div class="step-content" style="margin-bottom: 0.75rem;">
-                            <strong>First, find your Ubuntu IP address:</strong>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Info</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-lang">Bash</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
-                            <pre>hostname -I</pre>
-                        </div>
-                        <div class="alert alert-info">
-                            <div class="alert-title">💡 Understanding the output:</div>
-                            <ul>
-                                <li>The command will display one or more IP addresses</li>
-                                <li>Use the <strong>first IP address</strong> shown (usually starts with 172.x.x.x or 192.168.x.x)</li>
-                                <li>Example output: <code>172.24.144.1 192.168.1.100</code> → use <code>172.24.144.1</code></li>
-                            </ul>
-                        </div>
+                        <pre>Place your MP3 file in: ~/what-i-learned-today-reels/public/your-music.mp3</pre>
                     </div>
+                    <div class="alert alert-warning">
+                        <div class="alert-title">⚠️ Music File Guidelines:</div>
+                        <ul>
+                            <li>Use MP3 format only</li>
+                            <li>Recommended length: 30-60 seconds</li>
+                            <li>You can copy your MP3 from Windows to Ubuntu</li>
+                            <li>Update the music filename in <code>public/content.json</code> if using custom music</li>
+                            <li>Skip this step if you want to use the default music</li>
+                        </ul>
+                    </div>
+                </div>
 
-                    <div style="margin-top: 1.5rem;">
-                        <div class="step-content" style="margin-bottom: 0.75rem;">
-                            <strong>Then, use this URL format in your browser:</strong>
-                        </div>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-lang">Browser URL Format</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
-                            <pre>http://&lt;ubuntu-ip&gt;:8000/videos/my-learnings.mp4</pre>
-                        </div>
-                        <div class="alert alert-warning">
-                            <div class="alert-title">⚠️ Replace &lt;ubuntu-ip&gt; with your actual IP:</div>
-                            <ul>
-                                <li>If your IP is <code>172.24.144.1</code>, use: <code>http://172.24.144.1:8000/videos/my-learnings.mp4</code></li>
-                                <li>If your IP is <code>192.168.1.100</code>, use: <code>http://192.168.1.100:8000/videos/my-learnings.mp4</code></li>
-                                <li>Make sure to replace <code>&lt;ubuntu-ip&gt;</code> with the IP address from the <code>hostname -I</code> command</li>
-                            </ul>
-                        </div>
+                <div class="step">
+                    <div class="step-title">11. Preview Your Changes</div>
+                    <div class="step-content">
+                        Start the development preview server to see your changes in real-time.
                     </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>pnpm preview</pre>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-title">💡 Preview Mode:</div>
+                        <ul>
+                            <li>This starts a live preview server</li>
+                            <li>You'll see a URL like: <code>http://localhost:3000</code></li>
+                            <li>Open this URL in your browser to preview</li>
+                            <li>You can see your changes without rendering the final video</li>
+                            <li>Press <code>Ctrl+C</code> when done previewing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">12. Render Your Final Video</div>
+                    <div class="step-content">
+                        Once you're happy with your content, render the final video.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>pnpm render</pre>
+                    </div>
+                    <div class="alert alert-warning">
+                        <div class="alert-title">⚠️ Rendering takes 2-3 minutes:</div>
+                        <ul>
+                            <li>The video is being generated with your custom content</li>
+                            <li>You'll see progress messages</li>
+                            <li>Wait for "Rendering complete!" message</li>
+                            <li>Don't close the terminal during rendering</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">13. Start Web Server to View Your Video</div>
+                    <div class="step-content">
+                        After rendering completes, navigate back to home and start the server again.
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>cd ~
+python3 -m http.server 8001</pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">14. Watch YOUR Video!</div>
+                    <div class="step-content">
+                        Open your browser and watch the video you just created with your own content!
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Browser URL</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre>http://localhost:8001/what-i-learned-today-reels/out/video.mp4</pre>
+                    </div>
+                    <div class="alert alert-success">
+                        <div class="alert-title">🎉 Congratulations!</div>
+                        <ul>
+                            <li>You've created your own "What I Learned Today" reel!</li>
+                            <li>The video contains YOUR learning points</li>
+                            <li>You can share this video on social media</li>
+                            <li>Download it by right-clicking the video and selecting "Save video as..."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in-section">
+                <h3 class="card-title">Part 3: Activity Summary & Next Steps</h3>
+
+                <div class="alert alert-info">
+                    <div class="alert-title">📝 What You Accomplished:</div>
+                    <ul>
+                        <li>✅ Installed the Reel Generator from scratch</li>
+                        <li>✅ Watched the existing sample video</li>
+                        <li>✅ Customized content with your own learnings</li>
+                        <li>✅ (Optional) Added your own background music</li>
+                        <li>✅ Previewed your changes in real-time</li>
+                        <li>✅ Rendered your final personalized video</li>
+                        <li>✅ Watched your own creation!</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-success">
+                    <div class="alert-title">🚀 Want to Create More Videos?</div>
+                    <ul>
+                        <li>Navigate to project: <code>cd ~/what-i-learned-today-reels</code></li>
+                        <li>Edit content: <code>micro public/content.json</code></li>
+                        <li>Preview changes: <code>pnpm preview</code></li>
+                        <li>Render new video: <code>pnpm render</code></li>
+                        <li>View it: Start server and open in browser</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">💡 Pro Tips:</div>
+                    <ul>
+                        <li>Keep your learning points concise (1-2 sentences each)</li>
+                        <li>Use 3-5 points for optimal video length</li>
+                        <li>Choose upbeat music that matches your content</li>
+                        <li>Share your videos on LinkedIn, Instagram, or Twitter</li>
+                        <li>Create a daily learning video to track your progress!</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -1238,7 +1442,6 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
         // Scroll to Top Button Functionality
         const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-        // Show/hide button based on scroll position
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 scrollTopBtn.classList.add('visible');
@@ -1247,7 +1450,6 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
             }
         });
 
-        // Scroll to top when button is clicked
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -1262,9 +1464,13 @@ curl -fsSL -o contact_qr.py https://raw.githubusercontent.com/sandeepbangaru17/q
                 const targetId = pill.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
                 
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const navHeight = 80;
+                const offset = 100;
+                const targetPosition = targetSection.offsetTop - navHeight - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
 
                 document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
